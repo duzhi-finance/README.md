@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>光美｜靈芝外泌體頭皮養護</title>
+<title>光美｜靈芝外泌體是什麼？</title>
 <link rel="icon" href="../icons/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" sizes="180x180" href="../icons/icon-180.png">
 <link rel="manifest" href="manifest.json">
-<meta name="apple-mobile-web-app-title" content="光美頭皮">
+<meta name="apple-mobile-web-app-title" content="靈芝外泌體">
 <meta name="theme-color" content="#F6F0E9">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,254 +20,143 @@ body{background:#E9DFD4;font-family:'Noto Serif TC',serif;color:var(--ink);-webk
 .wrap{max-width:480px;margin:0 auto;background:var(--paper);min-height:100vh;box-shadow:0 0 60px rgba(60,40,30,.12);overflow:hidden}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
-.lat{font-family:'Cormorant Garamond',serif}
-.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:rgba(246,240,233,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:14px 20px;background:rgba(246,240,233,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:baseline;gap:8px}
 .brand b{font-size:18px;letter-spacing:4px;font-weight:600}
 .brand span{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:3px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:40px;font-size:14px;letter-spacing:1.5px;padding:10px 20px;font-weight:600;transition:transform .15s}
-.btn:active{transform:scale(.97)}
-.btn-line{background:#06C755;color:#fff}
-.btn-dark{background:var(--ink);color:var(--paper)}
-.btn-ghost{border:1px solid currentColor}
-.bar .btn{padding:7px 14px;font-size:12.5px}
-
-.hero{position:relative;height:600px;color:#fff}
+.hero{position:relative;height:580px;color:#fff}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:35% 50%}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,20,15,.25) 0%,rgba(30,20,15,.1) 35%,rgba(30,20,15,.72) 100%)}
-.hero .in{position:absolute;left:24px;right:24px;bottom:36px;z-index:2}
-.hero .k{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:4px;opacity:.9}
-.hero h1{font-size:40px;font-weight:700;letter-spacing:6px;line-height:1.35;margin:10px 0 6px}
-.hero p{font-size:15px;letter-spacing:1.5px;line-height:1.9;margin:10px 0 22px;opacity:.95}
-.hero .ctas{display:flex;gap:10px}
-.hero .btn-ghost{color:#fff}
-
+.hero .in{position:absolute;left:24px;right:24px;bottom:40px;z-index:2}
+.hero .k{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:5px;opacity:.9}
+.hero h1{font-size:46px;font-weight:700;letter-spacing:8px;line-height:1.3;margin:10px 0 8px}
+.hero p{font-size:15px;letter-spacing:1.5px;line-height:1.9;opacity:.95}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:16px 20px;scrollbar-width:none;border-bottom:1px solid var(--line)}
 .chips::-webkit-scrollbar{display:none}
 .chips a{flex:none;font-size:13px;letter-spacing:1.5px;padding:7px 14px;border:1px solid var(--line);border-radius:30px;background:#fff8}
-
 section{padding:56px 22px}
+.alt{background:var(--paper2)}
 .eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--rose)}
-.h2{font-size:27px;font-weight:700;letter-spacing:3px;margin:4px 0 10px;line-height:1.45}
-.lead{font-size:14px;line-height:1.95;color:var(--soft);letter-spacing:1px}
-
-.why{display:grid;gap:12px;margin-top:22px}
-.why div{background:#fff;border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(120,90,70,.06)}
-.why .n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--champ)}
-.why b{display:block;font-size:16px;letter-spacing:1.5px;margin:2px 0 4px}
-.why span{font-size:13px;color:var(--soft);line-height:1.8;letter-spacing:.6px}
-
-.about{background:var(--paper2)}
-.about .pic{margin-top:20px;border-radius:16px;overflow:hidden}
-.about .pic img{width:100%;aspect-ratio:4/3;object-fit:cover}
-
-.steps{list-style:none;counter-reset:st;margin-top:18px}
-.steps li{counter-increment:st;display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
-.steps li:before{content:"0" counter(st);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--champ);width:30px;line-height:1.1;flex:none}
-.steps b{display:block;font-size:15.5px;letter-spacing:1.2px}
-.steps span{font-size:12.5px;color:var(--soft);letter-spacing:.6px;line-height:1.7}
-.dur{display:inline-block;margin-top:6px;font-size:13px;letter-spacing:2px;color:var(--rose);border:1px solid var(--rose);border-radius:30px;padding:3px 12px}
-
-.plan{border-radius:18px;padding:24px 22px;background:linear-gradient(135deg,#F5EBE3 0%,#EFDFD3 100%);box-shadow:0 8px 24px rgba(120,90,70,.08);margin-top:20px}
-.plan .tag{font-size:12px;letter-spacing:2px;color:var(--rose)}
-.plan .pl{font-size:15px;letter-spacing:3px;margin-top:6px}
-.plan .pb{font-family:'Cormorant Garamond',serif;font-size:76px;font-weight:500;line-height:1;color:var(--deep)}
-.plan .pb small{font-size:30px;vertical-align:36px;margin-right:2px}
-.plan .pt{font-size:15px;letter-spacing:2px;margin-top:6px}
-.plan .pt b{font-family:'Cormorant Garamond',serif;font-size:20px}
-.plan hr{border:none;width:44px;height:1.5px;background:var(--ink);margin:14px 0}
-.plan .ds{font-size:13px;color:var(--soft);line-height:1.8;letter-spacing:.6px}
-.plan.alt{background:#fff}
-.plan.alt .pb{font-size:56px}
-.plan.alt .pb small{font-size:24px;vertical-align:24px}
-.plan .was{font-family:'Cormorant Garamond',serif;font-size:18px;color:#B9A797;text-decoration:line-through;margin-left:8px}
-
-.fit{list-style:none;margin-top:18px}
-.fit li{font-size:14.5px;letter-spacing:1px;padding:9px 0;display:flex;gap:12px;align-items:center;border-bottom:1px dashed var(--line)}
-.fit li:before{content:"";width:6px;height:6px;border:1px solid var(--rose);transform:rotate(45deg);flex:none}
-
-.collab{position:relative;background:radial-gradient(120% 70% at 50% 0%,#F1DED2 0%,#F6F0E9 70%)}
-.cx{display:flex;align-items:center;justify-content:center;gap:16px;margin:8px 0 18px;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:3px;color:var(--soft)}
-.cx i{font-style:normal;font-size:22px;color:var(--rose)}
-.glass{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.85);border-radius:18px;box-shadow:0 10px 30px rgba(120,90,70,.1)}
-.flow{padding:4px 18px}
-.flow div{display:flex;gap:14px;align-items:center;padding:15px 0;border-top:1px solid var(--line)}
-.flow div:first-child{border-top:none}
-.flow .n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:var(--rose);width:30px;flex:none}
-.flow b{display:block;font-size:15px;letter-spacing:1.2px}
-.flow span{font-size:12.5px;color:var(--soft);letter-spacing:.6px;line-height:1.7}
-.offer{text-align:center;margin-top:18px;padding:20px;border-radius:18px;background:var(--ink);color:var(--paper)}
-.offer .k{font-size:12px;letter-spacing:3px;color:var(--champ)}
-.offer b{display:block;font-size:24px;letter-spacing:3px;margin-top:6px}
-.salons{margin-top:24px}
-.salons h3{font-size:17px;letter-spacing:3px;padding-bottom:8px;border-bottom:1.5px solid var(--ink);display:flex;justify-content:space-between;align-items:baseline}
-.salons h3 span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--soft);font-weight:400}
-.salon{padding:14px 0;border-bottom:1px solid var(--line)}
-.salon b{font-size:15.5px;letter-spacing:1.2px}
-.salon div{font-size:12.5px;color:var(--soft);letter-spacing:.6px;margin-top:3px}
-.pro{margin-top:22px;font-size:13px;color:var(--soft);letter-spacing:.8px;line-height:1.8;text-align:center}
-.pro a{color:var(--rose);border-bottom:1px solid var(--rose)}
-
-.notes{background:var(--paper2)}
-.notes ul{list-style:none;margin-top:14px}
-.notes li{font-size:14px;letter-spacing:1px;line-height:1.8;padding:8px 0;border-bottom:1px solid var(--line)}
-.notes li:before{content:"・";color:var(--rose)}
-.small{font-size:11.5px;color:var(--soft);letter-spacing:.6px;line-height:1.8;margin-top:14px}
-
-.visit dl{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;font-size:14px;letter-spacing:.8px;background:#fff;border-radius:18px;padding:20px;margin-top:18px;box-shadow:0 8px 24px rgba(120,90,70,.07)}
-.visit dt{color:var(--soft)}
-.visit .btn{width:100%;margin-top:14px}
-
-footer{background:var(--dark);color:#F3EEE6;text-align:center;padding:52px 24px 96px}
+.h2{font-size:27px;font-weight:700;letter-spacing:3px;margin:4px 0 12px;line-height:1.45}
+.lead{font-size:14.5px;line-height:2;color:var(--soft);letter-spacing:1px}
+.lead+.lead{margin-top:12px}
+.lead b{color:var(--ink);font-weight:600}
+.dots{display:flex;align-items:center;justify-content:center;gap:18px;margin:26px 0 6px}
+.dots i{display:block;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0%,#EBD3C4 45%,#C29E86 100%);box-shadow:0 6px 16px rgba(140,90,72,.18)}
+.dots i:nth-child(1){width:18px;height:18px}.dots i:nth-child(2){width:30px;height:30px}.dots i:nth-child(3){width:46px;height:46px}.dots i:nth-child(4){width:30px;height:30px}.dots i:nth-child(5){width:18px;height:18px}
+.cap{text-align:center;font-size:12px;color:var(--soft);letter-spacing:1px}
+.cards{display:grid;gap:12px;margin-top:22px}
+.card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(120,90,70,.06)}
+.card .n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--champ)}
+.card b{display:block;font-size:16px;letter-spacing:1.5px;margin:2px 0 4px}
+.card span{font-size:13px;color:var(--soft);line-height:1.8;letter-spacing:.6px}
+.eq{display:flex;align-items:stretch;gap:10px;margin-top:22px}
+.eq div{flex:1;text-align:center;background:#fff;border-radius:16px;padding:18px 8px;box-shadow:0 8px 24px rgba(120,90,70,.06)}
+.eq b{display:block;font-size:17px;letter-spacing:2px}
+.eq small{display:block;font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:2px;color:var(--rose);margin-top:2px}
+.eq span{display:block;font-size:12px;color:var(--soft);margin-top:8px;line-height:1.6}
+.eq em{align-self:center;font-style:normal;font-size:22px;color:var(--rose);flex:none}
+.pic{margin-top:22px;border-radius:16px;overflow:hidden}
+.pic img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.list{list-style:none;margin-top:18px}
+.list li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.list li:before{content:"";width:6px;height:6px;margin-top:9px;border:1px solid var(--rose);transform:rotate(45deg);flex:none}
+.list b{display:block;font-size:15.5px;letter-spacing:1.2px}
+.list span{font-size:13px;color:var(--soft);letter-spacing:.6px;line-height:1.75}
+details{border-bottom:1px solid var(--line)}
+details:first-of-type{border-top:1px solid var(--line);margin-top:18px}
+summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:baseline;padding:16px 0;font-size:15.5px;letter-spacing:1px;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary:before{content:"Q";font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--rose);font-weight:500}
+summary:after{content:"＋";margin-left:auto;color:var(--rose);font-weight:400;transition:transform .25s}
+details[open] summary:after{transform:rotate(45deg)}
+details p{font-size:13.5px;color:var(--soft);line-height:1.9;letter-spacing:.6px;padding:0 0 16px 26px}
+footer{background:var(--dark);color:#F3EEE6;text-align:center;padding:48px 24px 52px}
 footer .brand{justify-content:center}
-footer .ctas{display:flex;flex-direction:column;gap:10px;margin:24px auto 0;max-width:300px}
-footer .btn-ghost{color:#F3EEE6}
-footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:26px;letter-spacing:.6px}
-.float{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:30;width:min(440px,calc(100% - 32px));display:flex;gap:8px}
-.float a{flex:1;box-shadow:0 10px 26px rgba(0,0,0,.18)}
+footer .line{display:inline-block;margin-top:20px;font-size:13px;letter-spacing:1.5px;color:#D9C3A3;border-bottom:1px solid #D9C3A3}
+footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter-spacing:.6px}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<header class="bar">
- <a class="brand" href="../"><b>光美</b><span>GUĀNG MĚI</span></a>
- <a class="btn btn-line" href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">LINE 預約</a>
-</header>
+<header class="bar"><div class="brand"><b>光美</b><span>GUĀNG MĚI</span></div></header>
 
 <div class="hero">
  <img src="../img/top1.jpg" alt="">
  <div class="in">
-  <div class="k">GANODERMA EXOSOME · SCALP CARE</div>
-  <h1>靈芝外泌體<br>頭皮養護</h1>
-  <p>剪燙染之後，也讓頭皮好好休息。<br>光美 × 合作髮廊，一起照顧你的頭髮與頭皮。</p>
-  <div class="ctas">
-   <a class="btn btn-line" href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">加 LINE 預約</a>
-   <a class="btn btn-ghost" href="#plan">看方案價格</a>
-  </div>
+  <div class="k">GANODERMA EXOSOME</div>
+  <h1>靈芝外泌體</h1>
+  <p>來自靈芝的細緻保養力。<br>認識這個近年備受關注的保養成分。</p>
  </div>
 </div>
 
 <nav class="chips">
- <a href="#why">為什麼要養頭皮</a><a href="#flow">療程流程</a><a href="#plan">方案價格</a><a href="#collab">髮廊合作</a><a href="#notes">注意事項</a><a href="#visit">交通</a>
+ <a href="#exo">外泌體是什麼</a><a href="#ling">為什麼是靈芝</a><a href="#both">兩者結合</a><a href="#scalp">用在頭皮</a><a href="#faq">常見問題</a>
 </nav>
 
-<section id="why">
- <div class="eyebrow">Why Scalp Care</div>
- <div class="h2">頭髮的根本，<br>是頭皮</div>
- <div class="lead">頭皮也是肌膚的一部分。平常洗頭只能清潔，定期養護，才能讓頭皮維持在舒服的狀態。</div>
- <div class="why">
-  <div><span class="n">01</span><b>染燙之後更需要照顧</b><span>剪燙染後頭皮容易乾燥、緊繃，適時補充保養，讓頭皮恢復舒適。</span></div>
-  <div><span class="n">02</span><b>出油、悶熱、扁塌</b><span>頭皮清爽乾淨，髮根看起來更蓬鬆，整體造型也更持久好整理。</span></div>
-  <div><span class="n">03</span><b>給自己 30 分鐘</b><span>頭皮按摩加上熱敷眼罩，忙碌之中好好放鬆一下。</span></div>
+<section id="exo">
+ <div class="eyebrow">What is Exosome</div>
+ <div class="h2">外泌體是什麼？</div>
+ <div class="lead"><b>外泌體（Exosome）</b>是細胞自然釋放的微小囊泡，大小只有奈米等級，比一般保養成分細緻許多。</div>
+ <div class="lead">它就像細胞之間的「小信差」，裡面帶著蛋白質、脂質等成分，在細胞之間傳遞訊息。</div>
+ <div class="dots"><i></i><i></i><i></i><i></i><i></i></div>
+ <div class="cap">奈米級的微小囊泡</div>
+ <div class="lead" style="margin-top:20px">近年保養品常使用<b>植物來源</b>萃取的外泌體作為保養成分，溫和、親膚，受到越來越多人關注。</div>
+</section>
+
+<section class="alt" id="ling">
+ <div class="eyebrow">Why Ganoderma</div>
+ <div class="h2">為什麼是靈芝？</div>
+ <div class="lead">靈芝自古被視為珍貴的養生植材。它含有<b>多醣體</b>、<b>三萜類</b>等成分，在保養品中常被用來保濕、舒緩，以及抵禦外在環境的負擔。</div>
+ <div class="cards">
+  <div class="card"><span class="n">01</span><b>多醣體</b><span>具有良好的保水力，幫助肌膚與頭皮維持滋潤。</span></div>
+  <div class="card"><span class="n">02</span><b>三萜類</b><span>靈芝特有的成分之一，常用於舒緩保養。</span></div>
+  <div class="card"><span class="n">03</span><b>天然植萃</b><span>來自植物，溫和親膚，適合日常定期保養。</span></div>
  </div>
 </section>
 
-<section class="about">
- <div class="eyebrow">Ganoderma Exosome</div>
- <div class="h2">什麼是靈芝外泌體？</div>
- <div class="lead">以靈芝萃取的外泌體保養成分，搭配微晶導入，讓頭皮保養更好吸收。溫和不刺激，適合想定期保養頭皮的你。</div>
- <div class="pic"><img src="../img/space2.jpg" alt="光美空間"></div>
+<section id="both">
+ <div class="eyebrow">Ganoderma × Exosome</div>
+ <div class="h2">靈芝 × 外泌體</div>
+ <div class="lead">從靈芝萃取出的外泌體，結合了靈芝的植萃成分與外泌體細緻的特性。</div>
+ <div class="eq">
+  <div><b>靈芝</b><small>GANODERMA</small><span>珍貴植萃<br>保濕・舒緩</span></div>
+  <em>×</em>
+  <div><b>外泌體</b><small>EXOSOME</small><span>奈米級<br>細緻親膚</span></div>
+ </div>
+ <div class="lead" style="margin-top:20px">搭配<b>微晶導入</b>等專業手法，能讓保養成分更均勻地分布，也更好被吸收。</div>
+ <div class="pic"><img src="../img/space2.jpg" alt=""></div>
 </section>
 
-<section id="flow">
- <div class="eyebrow">Treatment Flow</div>
- <div class="h2">療程流程</div>
- <span class="dur">療程約 30 分鐘</span>
- <ol class="steps">
-  <li><p><b>頭皮按摩</b><span>5 分鐘，放鬆頭皮與肩頸</span></p></li>
-  <li><p><b>靈芝外泌體微晶導入</b><span>20 分鐘，讓保養成分更好吸收</span></p></li>
-  <li><p><b>外泌體養髮精華按摩</b><span>3 分鐘，按摩幫助精華均勻分布</span></p></li>
-  <li><p><b>熱敷眼罩</b><span>舒緩眼周，好好休息一下</span></p></li>
- </ol>
-</section>
-
-<section id="plan" style="padding-top:20px">
- <div class="eyebrow">Price</div>
- <div class="h2">方案價格</div>
- <div class="plan">
-  <div class="tag">月養護方案</div>
-  <div class="pl">頭皮養護，平均一次</div>
-  <div class="pb"><small>$</small>880</div>
-  <div class="pt">1 個月 5 次・<b>$4,400</b></div>
-  <hr>
-  <div class="ds">每次約 30 分鐘，限一個月內使用完畢。剪燙染前後都很適合安排。</div>
- </div>
- <div class="plan alt">
-  <div class="tag">完整課程・冬日活動</div>
-  <div class="pl">外泌體養髮課程 90 分鐘</div>
-  <div class="pb"><small>$</small>2,500<span class="was">$3,900</span></div>
-  <hr>
-  <div class="ds">頭皮養護加上臉部基礎保養：清潔、去角質、精華液導入、面膜，再進行頭部 EMS 奈米微晶導入、頭皮水光槍修護與舒壓按摩。</div>
- </div>
- <div class="h2" style="font-size:19px;margin-top:32px">適合這樣的你</div>
- <ul class="fit">
-  <li>剛剪燙染完，頭皮乾燥緊繃</li>
-  <li>頭皮容易出油、悶熱</li>
-  <li>髮根扁塌、想要蓬鬆感</li>
-  <li>想定期保養頭皮健康、讓秀髮光澤亮麗</li>
-  <li>想好好舒壓放鬆的人</li>
+<section class="alt" id="scalp">
+ <div class="eyebrow">For Your Scalp</div>
+ <div class="h2">用在頭皮保養</div>
+ <div class="lead">頭皮也是肌膚的一部分。洗頭只能清潔，定期保養，才能讓頭皮維持在舒服的狀態。</div>
+ <ul class="list">
+  <li><p><b>保濕滋潤</b><span>為乾燥的頭皮補充水分，減少緊繃感。</span></p></li>
+  <li><p><b>剪燙染後的照顧</b><span>染燙後頭皮容易乾燥敏感，適時保養讓頭皮恢復舒適。</span></p></li>
+  <li><p><b>清爽不悶熱</b><span>維持頭皮乾淨清爽，髮根看起來更蓬鬆。</span></p></li>
+  <li><p><b>秀髮光澤</b><span>頭皮狀態好，頭髮看起來也更有光澤、好整理。</span></p></li>
  </ul>
 </section>
 
-<section class="collab" id="collab">
- <div class="eyebrow">Hair Salon × Guāng Měi</div>
- <div class="h2">髮廊合作專屬優惠</div>
- <div class="cx"><span>HAIR SALON</span><i>×</i><span>GUĀNG MĚI</span></div>
- <div class="lead">在合作髮廊整理好頭髮，再來光美照顧頭皮。從髮尾到髮根，一次照顧完整。</div>
- <div class="glass flow" style="margin-top:20px">
-  <div><span class="n">01</span><p><b>在合作髮廊剪燙染</b><span>合作髮廊名單見下方</span></p></div>
-  <div><span class="n">02</span><p><b>出示消費紀錄</b><span>[消費收據／合作卡，細節待補]</span></p></div>
-  <div><span class="n">03</span><p><b>來光美享合作優惠</b><span>LINE 預約時告知「髮廊合作」</span></p></div>
- </div>
- <div class="offer"><div class="k">合作髮廊客人專屬</div><b>[合作優惠內容]</b></div>
- <div class="salons">
-  <h3>合作髮廊<span>Partner Salons</span></h3>
-  <div class="salon"><b>[髮廊名稱]</b><div>[地址]・[聯絡方式]</div></div>
-  <div class="salon"><b>[髮廊名稱]</b><div>[地址]・[聯絡方式]</div></div>
-  <div class="small">合作髮廊陸續加入中，最新名單以官方 LINE 公告為準。</div>
- </div>
- <div class="pro">你是髮型設計師或髮廊老闆？<br>歡迎一起合作，<a href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">LINE 洽詢合作</a></div>
-</section>
-
-<section class="notes" id="notes">
- <div class="eyebrow">Notice</div>
- <div class="h2">注意事項</div>
- <ul>
-  <li>來店前務必清潔頭皮</li>
-  <li>療程當天請勿洗頭</li>
-  <li>月養護方案限一個月內使用完畢</li>
-  <li>全預約制，請先加官方 LINE 預約</li>
- </ul>
- <div class="small">本工作室提供一般美容保養服務，非醫療行為。頭皮如有傷口、發炎或疾病，請先諮詢醫師。</div>
-</section>
-
-<section class="visit" id="visit">
- <div class="eyebrow">Visit Us</div>
- <div class="h2">交通資訊</div>
- <dl>
-  <dt>地址</dt><dd>台北市大安區忠孝東路四段223巷40號</dd>
-  <dt>捷運</dt><dd>忠孝敦化站 2 號出口</dd>
-  <dt>時間</dt><dd>[營業時間]・全預約制</dd>
- </dl>
- <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E5%BF%A0%E5%AD%9D%E6%9D%B1%E8%B7%AF%E5%9B%9B%E6%AE%B5223%E5%B7%B740%E8%99%9F" target="_blank" rel="noopener">開啟 Google 地圖</a>
+<section id="faq">
+ <div class="eyebrow">Q &amp; A</div>
+ <div class="h2">常見問題</div>
+ <details><summary>外泌體是藥嗎？</summary><p>不是。這裡使用的是保養品中的外泌體成分，屬於一般美容保養，不是醫療行為，也不能取代醫療。</p></details>
+ <details><summary>靈芝外泌體是從人體來的嗎？</summary><p>不是。靈芝外泌體是從植物「靈芝」萃取而來的植物來源成分。</p></details>
+ <details><summary>敏感頭皮可以做嗎？</summary><p>一般頭皮都可以使用。若頭皮有傷口、發炎、或正在接受皮膚治療，請先諮詢醫師，再安排保養。</p></details>
+ <details><summary>剪燙染後可以做嗎？</summary><p>可以，染燙後正是頭皮需要照顧的時候。建議與設計師及保養師討論，安排適合的時間。</p></details>
+ <details><summary>多久做一次比較好？</summary><p>依每個人頭皮狀況不同，建議到店諮詢，由保養師評估適合的頻率。</p></details>
 </section>
 
 <footer>
  <div class="brand"><b>光美</b><span>GUĀNG MĚI</span></div>
- <div class="lat" style="font-style:italic;font-size:18px;color:#D9C3A3;margin-top:8px">Be gentle with yourself</div>
- <div class="ctas">
-  <a class="btn btn-line" href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">官方 LINE 預約・諮詢</a>
-  <a class="btn btn-ghost" href="../">看光美完整課程 Menu</a>
-  <a class="btn btn-ghost" href="https://www.instagram.com/guangmeitaiwan" target="_blank" rel="noopener">Instagram @guangmeitaiwan</a>
- </div>
- <div class="fine">本工作室提供一般美容保養服務，非醫療行為。<br>課程感受因人而異，實際內容以現場諮詢為準。<br>價格如有調整，以官方 LINE 公告為準。</div>
+ <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:#D9C3A3;margin-top:8px">Be gentle with yourself</div>
+ <a class="line" href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">想了解更多，歡迎 LINE 諮詢</a>
+ <div class="fine">本頁內容為一般保養成分介紹，非醫療行為，<br>亦不代表任何療效。實際感受因人而異。</div>
 </footer>
-
-<div class="float">
- <a class="btn btn-line" href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">LINE 預約</a>
- <a class="btn btn-dark" href="#plan">方案價格</a>
-</div>
 </div>
 </body>
 </html>
