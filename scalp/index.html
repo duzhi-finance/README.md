@@ -49,6 +49,11 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
  radial-gradient(circle at 10% 8%,rgba(214,186,168,.40) 0,rgba(214,186,168,0) 36%),
  radial-gradient(circle at 95% 40%,rgba(194,158,134,.32) 0,rgba(194,158,134,0) 34%),
  radial-gradient(circle at 8% 8%,transparent 0 130px,rgba(255,250,245,.5) 131px 133px,transparent 135px)}
+#scalp.soft{background:linear-gradient(180deg,#F6F0E9 0%,#F2E8E0 45%,#F2E8E0 70%,#F6F0E9 100%)}
+#scalp.soft:before{background:
+ radial-gradient(circle at 92% 4%,rgba(214,186,168,.30) 0,rgba(214,186,168,0) 34%),
+ radial-gradient(circle at 0% 62%,rgba(226,204,190,.22) 0,rgba(226,204,190,0) 32%),
+ radial-gradient(circle at 94% 4%,transparent 0 120px,rgba(255,252,248,.6) 121px 122px,transparent 124px)}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:16px 20px;scrollbar-width:none;border-bottom:1px solid var(--line)}
 .chips::-webkit-scrollbar{display:none}
 .chips a{flex:none;font-size:13px;letter-spacing:1.5px;padding:7px 14px;border:1px solid var(--line);border-radius:30px;background:#fff8}
@@ -87,13 +92,11 @@ section{padding:56px 22px}
 .dia .dbe{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:2px}
 .pic img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .bens{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
-.bc{position:relative;background:#fff;border-radius:18px;padding:20px 16px 18px;box-shadow:0 8px 24px rgba(120,90,70,.07);overflow:hidden}
-.bc:after{content:"";position:absolute;right:-26px;bottom:-26px;width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.9),rgba(235,211,196,.55) 55%,rgba(194,158,134,.25));opacity:.7}
-.bc .ic{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 30%,#fff 0%,#F3E4DA 60%,#E8D2C4 100%);box-shadow:0 4px 10px rgba(140,90,72,.12)}
-.bc svg{width:21px;height:21px;fill:none;stroke:var(--rose);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-.bc .no{position:absolute;top:18px;right:18px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--champ)}
-.bc b{display:block;font-size:15.5px;letter-spacing:1.2px;margin:14px 0 6px;position:relative;z-index:1}
-.bc .tx{display:block;font-size:12.5px;color:var(--soft);letter-spacing:.4px;line-height:1.75;position:relative;z-index:1}
+.bc{position:relative;background:rgba(255,255,255,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.9);border-radius:18px;padding:22px 18px 20px;box-shadow:0 10px 26px rgba(150,115,95,.08)}
+.bc .no{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;line-height:1;color:var(--champ)}
+.bc .no:after{content:"";display:block;width:22px;height:1px;background:var(--champ);margin-top:12px;opacity:.8}
+.bc b{display:block;font-size:15.5px;letter-spacing:1.5px;margin:14px 0 6px}
+.bc .tx{display:block;font-size:12.5px;color:var(--soft);letter-spacing:.4px;line-height:1.8}
 @media(max-width:360px){.bens{grid-template-columns:1fr}}
 .list{list-style:none;margin-top:18px}
 .list li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
@@ -141,7 +144,7 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter
 </div>
 
 <nav class="chips">
- <a href="#exo">外泌體是什麼</a><a href="#ling">為什麼是靈芝</a><a href="#both">兩者結合</a><a href="#scalp">用在頭皮</a><a href="#faq">常見問題</a>
+ <a href="#exo">外泌體是什麼</a><a href="#ling">為什麼是靈芝</a><a href="#both">兩者結合</a><a href="#scalp">頭皮呵護</a><a href="#faq">常見問題</a>
 </nav>
 
 <section id="exo">
@@ -190,15 +193,15 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter
 </svg></div>
 </section>
 
-<section class="alt glow" id="scalp">
- <div class="eyebrow">For Your Scalp</div>
- <div class="h2">用在頭皮保養</div>
- <div class="lead">頭皮也是肌膚的一部分。洗頭只能清潔，定期保養，才能讓頭皮維持在舒服的狀態。</div>
+<section class="glow soft" id="scalp">
+ <div class="eyebrow">The Scalp Ritual</div>
+ <div class="h2">頭皮的細緻呵護</div>
+ <div class="lead">頭皮，是被忽略的另一片肌膚。洗髮只是清潔，定期養護，才能讓頭皮回到舒適、平衡的狀態。</div>
  <div class="bens">
-  <div class="bc"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c3.2 4.2 6 7.6 6 11a6 6 0 0 1-12 0c0-3.4 2.8-6.8 6-11z"/><path d="M9.2 15.2a2.9 2.9 0 0 0 2.8 2.6" /></svg></div><span class="no">01</span><b>保濕滋潤</b><span class="tx">為乾燥的頭皮補充水分，減少緊繃感。</span></div>
-  <div class="bc"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6.5" cy="17" r="2.7"/><circle cx="17.5" cy="17" r="2.7"/><path d="M8.4 15 17 4.5M15.6 15 7 4.5"/></svg></div><span class="no">02</span><b>剪燙染後的照顧</b><span class="tx">染燙後頭皮容易乾燥敏感，適時保養讓頭皮恢復舒適。</span></div>
-  <div class="bc"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19C5 11 11 5 19 5c0 8-6 14-14 14z"/><path d="M5 19 13.5 10.5"/></svg></div><span class="no">03</span><b>清爽不悶熱</b><span class="tx">維持頭皮乾淨清爽，髮根看起來更蓬鬆。</span></div>
-  <div class="bc"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l1.7 5 5 1.7-5 1.7-1.7 5-1.7-5-5-1.7 5-1.7z"/><path d="M18.5 15.5l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6z"/></svg></div><span class="no">04</span><b>秀髮光澤</b><span class="tx">頭皮狀態好，頭髮看起來也更有光澤、好整理。</span></div>
+  <div class="bc"><span class="no">01</span><b>保濕滋潤</b><span class="tx">為乾燥的頭皮補充水分，減少緊繃感。</span></div>
+  <div class="bc"><span class="no">02</span><b>剪燙染後的照顧</b><span class="tx">染燙後頭皮容易乾燥敏感，適時保養讓頭皮恢復舒適。</span></div>
+  <div class="bc"><span class="no">03</span><b>清爽不悶熱</b><span class="tx">維持頭皮乾淨清爽，髮根看起來更蓬鬆。</span></div>
+  <div class="bc"><span class="no">04</span><b>秀髮光澤</b><span class="tx">頭皮狀態好，頭髮看起來也更有光澤、好整理。</span></div>
  </div>
 </section>
 
