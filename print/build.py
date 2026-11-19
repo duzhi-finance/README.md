@@ -366,6 +366,13 @@ SCALP_CSS = r"""
 .sw .offer .p{font-family:'Cormorant Garamond',serif;font-size:44pt;line-height:1;margin:1mm 0}
 .sw .offer .p small{font-size:18pt;vertical-align:18pt;margin-right:1mm}
 .sw .offer .s{font-size:10.5pt;letter-spacing:1.5pt}
+.sw .steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:.3mm solid var(--line);border-bottom:.3mm solid var(--line)}
+.sw .steps4 div{padding:4mm 3mm;text-align:center;border-left:.3mm dashed var(--line)}
+.sw .steps4 div:first-child{border-left:none}
+.sw .steps4 em{display:block;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:16pt;color:var(--champ)}
+.sw .steps4 b{display:block;font-size:11pt;letter-spacing:1pt;margin:1.5mm 0 1mm;line-height:1.45}
+.sw .steps4 span{font-size:8.5pt;color:var(--soft)}
+.sw .blk{margin-bottom:6mm}
 .sw .note{font-size:8pt;color:#9b8a7d;letter-spacing:.4pt;margin-top:4mm}
 """
 
@@ -390,9 +397,8 @@ def scalp_html():
  洗髮精、造型品、汗水和油脂，日積月累容易殘留在毛孔裡；頭皮狀態不好，頭髮自然也難有好表現。</p></div>
  <div class="blk"><div class="h3">你也有這些困擾嗎？<i>Common Concerns</i></div><div class="grid">{cells}</div></div>
  <div class="blk"><div class="h3">定期養護頭皮的好處<i>Benefits</i></div><div class="ben">{ben}</div></div>
- <div class="blk"><div class="h3">光美頭皮養護<i>Our Scalp Care</i></div>
- <div class="row"><div><ol class="flow"><li>5 分鐘頭皮按摩</li><li>20 分鐘靈芝外泌體微晶導入</li><li>外泌體養髮精華按摩</li><li>熱敷眼罩・好好休息</li></ol></div>
- <div class="offer"><div class="k">療程約 30 分鐘・平均一次</div><div class="p"><small>$</small>880</div><div class="s">1 個月 5 次・$4,400</div></div></div>
+ <div class="blk"><div class="h3">光美頭皮養護<i>Our Scalp Care・約 30 分鐘</i></div>
+ <div class="steps4"><div><em>01</em><b>頭皮按摩</b><span>5 分鐘放鬆頭皮</span></div><div><em>02</em><b>靈芝外泌體<br>微晶導入</b><span>20 分鐘</span></div><div><em>03</em><b>養髮精華按摩</b><span>精華均勻分布</span></div><div><em>04</em><b>熱敷眼罩</b><span>好好休息一下</span></div></div></div>
  <p class="note">＊本工作室提供一般美容保養服務，非醫療行為；頭皮如有傷口、發炎或疾病，請先諮詢醫師。效果因人而異。</p></div>
 </div>{foot()}</section>'''
     return f'''<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><title>光美 頭皮養護是什麼</title>
