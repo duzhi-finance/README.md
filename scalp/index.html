@@ -76,6 +76,26 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 .duo2 figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;padding:18px 0 7px;background:linear-gradient(180deg,rgba(70,48,38,0),rgba(70,48,38,.4))}
 .duo2 figcaption span{flex:1;text-align:center;font-size:10.5px;letter-spacing:1.5px;color:#FBF5EE}
 .duo-note{text-align:center;font-size:10.5px;color:#A8968A;letter-spacing:.5px;margin-top:8px}
+.cmp{position:relative;width:86%;margin:24px auto 0;border-radius:16px;overflow:hidden;aspect-ratio:1/1;box-shadow:0 8px 22px rgba(120,90,70,.08);touch-action:pan-y}
+.cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.8;filter:saturate(.82)}
+.cmp-top{position:absolute;inset:0;clip-path:inset(0 50% 0 0)}
+.cmp-bar{position:absolute;top:0;bottom:0;left:50%;width:1.5px;background:#fff;transform:translateX(-50%);pointer-events:none}
+.cmp-bar i{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.88);box-shadow:0 4px 12px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;font-style:normal;color:var(--rose);font-size:14px}
+.cmp .cl{position:absolute;top:12px;font-size:11px;letter-spacing:2px;color:#fff;background:rgba(70,48,38,.35);padding:3px 10px;border-radius:20px;pointer-events:none}
+.cmp .cl.l{left:12px}.cmp .cl.r{right:12px}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:ew-resize}
+.cmp-hint{text-align:center;font-size:11px;color:#A8968A;letter-spacing:1.5px;margin-top:8px}
+.cc{margin:22px 0 0}
+.ccr{display:flex;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(201,174,142,.35)}
+.ccr:last-child{border-bottom:none}
+.ccr .pr{display:flex;flex:none;align-items:center}
+.ccr .pr i{display:block;width:62px;height:62px;border-radius:50%;background-size:200% auto;opacity:.85;box-shadow:0 0 0 3px #fff}
+.ccr .pr .a{background-position:0 50%}.ccr .pr .b{background-position:100% 50%}
+.ccr .pr em{font-style:normal;color:var(--champ);margin:0 6px;font-size:13px}
+.ccr b{display:block;font-size:14px;letter-spacing:1px;margin-bottom:3px}.ccr span{font-size:12px;color:var(--soft)}
+.bc{overflow:hidden}
+.bc .bcbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.13;filter:saturate(.7);pointer-events:none}
+.bc>*:not(.bcbg){position:relative}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:16px 20px;scrollbar-width:none;border-bottom:1px solid var(--line)}
 .chips::-webkit-scrollbar{display:none}
 .chips a{flex:none;font-size:13px;letter-spacing:1.5px;padding:7px 14px;border:1px solid var(--line);border-radius:30px;background:#fff8}
@@ -219,16 +239,24 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter
  <div class="eyebrow">The Scalp Ritual</div>
  <div class="h2">頭皮的細緻呵護</div>
  <div class="lead">頭皮，是被忽略的另一片肌膚。洗髮只是清潔，定期養護，才能讓頭皮回到舒適、平衡的狀態。</div>
- <div class="duo2">
-  <figure><img src="../img/exo/follicle.jpg" alt="" loading="lazy"><figcaption><span>老廢堆積</span><span>潔淨平衡</span></figcaption></figure>
-  <figure><img src="../img/exo/scalp-ba.jpg" alt="" loading="lazy"><figcaption><span>頭皮屑困擾</span><span>清爽乾淨</span></figcaption></figure>
+ <div class="cmp" id="cmp">
+  <img src="../img/exo/follicle-after.jpg" alt="潔淨平衡示意" loading="lazy">
+  <div class="cmp-top"><img src="../img/exo/follicle-before.jpg" alt="老廢堆積示意" loading="lazy"></div>
+  <span class="cl l">老廢堆積</span><span class="cl r">潔淨平衡</span>
+  <div class="cmp-bar"><i>‹ ›</i></div>
+  <input type="range" min="0" max="100" value="50" aria-label="左右拖曳比較">
+ </div>
+ <p class="cmp-hint">← 左右拖曳看看差別 →</p>
+ <div class="cc">
+  <div class="ccr"><div class="pr"><i class="a" style="background-image:url(../img/exo/follicle.jpg)"></i><em>›</em><i class="b" style="background-image:url(../img/exo/follicle.jpg)"></i></div><p><b>老廢堆積 → 潔淨平衡</b><span>定期清潔，讓毛孔回到乾淨狀態</span></p></div>
+  <div class="ccr"><div class="pr"><i class="a" style="background-image:url(../img/exo/scalp-ba.jpg)"></i><em>›</em><i class="b" style="background-image:url(../img/exo/scalp-ba.jpg)"></i></div><p><b>頭皮屑困擾 → 清爽乾淨</b><span>水油平衡，頭皮清爽不悶</span></p></div>
  </div>
  <p class="duo-note">＊示意圖，實際狀況因人而異</p>
  <div class="bens">
-  <div class="bc"><span class="no">01</span><b>保濕滋潤</b><span class="tx">為乾燥的頭皮補充水分，減少緊繃感。</span></div>
-  <div class="bc"><span class="no">02</span><b>剪燙染後的照顧</b><span class="tx">染燙後頭皮容易乾燥敏感，適時保養讓頭皮恢復舒適。</span></div>
-  <div class="bc"><span class="no">03</span><b>清爽不悶熱</b><span class="tx">維持頭皮乾淨清爽，髮根看起來更蓬鬆。</span></div>
-  <div class="bc"><span class="no">04</span><b>秀髮光澤</b><span class="tx">頭皮狀態好，頭髮看起來也更有光澤、好整理。</span></div>
+  <div class="bc"><img class="bcbg" src="../img/exo/follicle-after.jpg" alt="" loading="lazy"><span class="no">01</span><b>保濕滋潤</b><span class="tx">為乾燥的頭皮補充水分，減少緊繃感。</span></div>
+  <div class="bc"><img class="bcbg" src="../img/exo/scalp-ba.jpg" alt="" loading="lazy"><span class="no">02</span><b>剪燙染後的照顧</b><span class="tx">染燙後頭皮容易乾燥敏感，適時保養讓頭皮恢復舒適。</span></div>
+  <div class="bc"><img class="bcbg" src="../img/exo/leaf.jpg" alt="" loading="lazy"><span class="no">03</span><b>清爽不悶熱</b><span class="tx">維持頭皮乾淨清爽，髮根看起來更蓬鬆。</span></div>
+  <div class="bc"><img class="bcbg" src="../img/exo/gel.jpg" alt="" loading="lazy"><span class="no">04</span><b>秀髮光澤</b><span class="tx">頭皮狀態好，頭髮看起來也更有光澤、好整理。</span></div>
  </div>
 </section>
 
@@ -249,5 +277,9 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter
  <div class="fine">本頁內容為一般保養成分介紹，非醫療行為，<br>亦不代表任何療效。實際感受因人而異。</div>
 </footer>
 </div>
+<script>
+(function(){var c=document.getElementById('cmp');if(!c)return;var r=c.querySelector('input'),t=c.querySelector('.cmp-top'),b=c.querySelector('.cmp-bar');
+function u(){var v=r.value;t.style.clipPath='inset(0 '+(100-v)+'% 0 0)';b.style.left=v+'%';}r.addEventListener('input',u);u();})();
+</script>
 </body>
 </html>
