@@ -184,8 +184,8 @@ img{display:block}
 .tm{font-size:10pt;color:var(--soft);letter-spacing:1pt}
 .pr s{font-family:'Cormorant Garamond',serif;font-size:12pt;color:#B9A797;margin-right:2mm}
 .pr b{font-family:'Cormorant Garamond',serif;font-size:20pt;font-weight:600;color:var(--rose)}
-.cb{display:flex;gap:6mm;margin-top:3.5mm}
-.ba{display:flex;gap:2.5mm;flex:none;align-items:flex-start}
+.cb{display:flex;gap:6mm;margin-top:3.5mm;align-items:center}
+.ba{display:flex;gap:2.5mm;flex:none;width:76mm;justify-content:center;align-items:center}
 .ba img.one{display:block;max-width:76mm;max-height:64mm;width:auto;height:auto;border-radius:3mm}
 .duo{position:relative;width:76mm;border-radius:3mm;overflow:hidden}
 .duo img{display:block;width:100%}
