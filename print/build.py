@@ -5,7 +5,7 @@ from pathlib import Path
 H = Path(__file__).parent
 QR = (H / "line-qr.svg").read_text(encoding="utf-8").split("?>", 1)[1]
 
-FZ = 1.08
+FZ = 1.06
 BASE3 = ["薰衣草熱蒸喚醒肌膚", "韓式雙效水循環小氣泡", "手清粉刺毛孔潔淨"]
 
 FACE = [
@@ -59,7 +59,7 @@ def Z(z, inner):
 
 def foot(dark=False):
     return f'''<div class="foot{' dk' if dark else ''}"><div class="fl"><b>光美</b><span>GUĀNG MĚI</span></div>
-<div class="fm">台北市大安區忠孝東路四段223巷40號・捷運忠孝敦化站 2 號出口<br>Instagram @guangmeitaiwan・全預約制</div>
+<div class="fm">台北市大安區忠孝東路四段223巷40號<br>捷運忠孝敦化站 2 號出口・全預約制<br>Instagram @guangmeitaiwan</div>
 <div class="fq"><div class="qr">{QR}</div><span>LINE 預約</span></div></div>'''
 
 
@@ -103,7 +103,7 @@ html,body{background:#ccc}
 body{font-family:'Noto Serif TC',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .page{position:relative;width:210mm;height:297mm;overflow:hidden;background:var(--paper);margin:0 auto 10mm;page-break-after:always;break-after:page}
 @media print{html,body{background:none}.page{margin:0}}
-.in{position:absolute;left:16mm;right:16mm;top:15mm;bottom:30mm}
+.in{position:absolute;left:16mm;right:16mm;top:15mm;bottom:35mm}
 .lat{font-family:'Cormorant Garamond',serif}
 .eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15pt;color:var(--rose)}
 .h2{font-size:25pt;font-weight:700;letter-spacing:3pt;margin:1mm 0 2mm}
@@ -111,11 +111,11 @@ body{font-family:'Noto Serif TC',serif;color:var(--ink);-webkit-print-color-adju
 .lg{color:#B9A797}.lg2{color:var(--rose)}
 img{display:block}
 /* footer */
-.foot{position:absolute;left:16mm;right:16mm;bottom:8mm;height:17mm;display:flex;align-items:center;gap:6mm;border-top:.3mm solid var(--line);padding-top:3mm}
-.fl{display:flex;align-items:baseline;gap:2mm}.fl b{font-size:13pt;letter-spacing:3pt}.fl span{font-family:'Cormorant Garamond',serif;font-size:10pt;letter-spacing:2pt}
-.fm{flex:1;font-size:7.5pt;color:var(--soft);line-height:1.7;letter-spacing:.4pt}
-.fq{display:flex;align-items:center;gap:2mm;font-size:7.5pt;letter-spacing:1pt;color:var(--soft)}
-.qr{width:15mm;height:15mm;background:#fff;padding:.8mm;border-radius:1mm}.qr svg{width:100%;height:100%;display:block}
+.foot{position:absolute;left:16mm;right:16mm;bottom:8mm;height:23mm;display:flex;align-items:center;gap:6mm;border-top:.3mm solid var(--line);padding-top:3mm}
+.fl{display:flex;align-items:baseline;gap:2mm}.fl b{font-size:17pt;letter-spacing:3pt}.fl span{font-family:'Cormorant Garamond',serif;font-size:13pt;letter-spacing:2pt}
+.fm{flex:1;text-align:left;font-size:10pt;color:var(--soft);line-height:1.7;letter-spacing:.4pt}
+.fq{display:flex;align-items:center;gap:2mm;font-size:10pt;letter-spacing:1pt;color:var(--soft)}
+.qr{width:19mm;height:19mm;background:#fff;padding:.8mm;border-radius:1mm}.qr svg{width:100%;height:100%;display:block}
 .foot.dk{border-top-color:rgba(255,255,255,.35)}
 .zs .in>*{zoom:1.25}.zb .in>*{zoom:1.12}
 /* winter */
@@ -130,7 +130,7 @@ img{display:block}
 .price .num{font-family:'Cormorant Garamond',serif;font-size:72pt;font-weight:500;color:var(--rose);line-height:1}
 .price .num small{font-size:30pt;vertical-align:30pt;margin-right:1mm}
 .wl{list-style:none;text-align:left;border-top:.3mm solid var(--line);margin-top:4mm}
-.wl li{display:flex;align-items:center;gap:6mm;padding:5mm 3mm;border-bottom:.3mm solid var(--line)}
+.wl li{display:flex;align-items:center;gap:6mm;padding:4.3mm 3mm;border-bottom:.3mm solid var(--line)}
 .wl .n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20pt;color:var(--champ);width:10mm}
 .wl .t{flex:1}.wl .t b{display:block;font-size:15pt;letter-spacing:1.5pt}.wl .t span{font-size:10pt;color:var(--soft);letter-spacing:1pt}
 .wl s{font-family:'Cormorant Garamond',serif;font-size:15pt;color:var(--champ)}
@@ -223,7 +223,7 @@ img{display:block}
 
 
 def html():
-    winter_items = [("外泌體養膚", "保濕・提亮・穩定", "$3,900"), ("外泌體養髮", "頭皮・髮根・蓬鬆", "$3,900"),
+    winter_items = [("外泌體養膚", "保濕・提亮・穩定", "$3,900"), ("木乃伊緊緻術", "緊緻・輪廓・拉提", "$4,280"),
                     ("藻針亮膚", "毛孔・油光・清爽", "$3,880"), ("酸類亮澤課程", "粉刺・暗沉", "$3,600"),
                     ("淨透水光肌", "清潔・水潤", "$3,200")]
     wl = "".join(f'<li><span class="n">0{i+1}</span><span class="t"><b>{a}</b><span>{b}</span></span><s>{c}</s></li>'
@@ -260,7 +260,7 @@ def html():
 </div>{foot()}</section>''')
     pages.append(f'''<section class="page"><div class="in">
 <div class="eyebrow">Best Sellers</div><h2 class="h2">人氣 TOP 3</h2>
-{Z(1.04, '<p class="lead">第一次來不知道選哪個？從大家最常做的開始。</p>' + tc)}
+{Z(1.0, '<p class="lead">第一次來不知道選哪個？從大家最常做的開始。</p>' + tc)}
 </div>{foot()}</section>''')
     pages.append(face_pages())
     pages.append(f'''<section class="page zs"><div class="in">
