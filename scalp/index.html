@@ -34,6 +34,21 @@ img{display:block;max-width:100%}
 .hero p{font-size:17px;letter-spacing:2px;margin-top:4px}
 @media(max-width:360px){.hero p{font-size:14px;letter-spacing:1px}.hero h1{font-size:34px}.hero .bot,.hero .top{left:20px;right:20px}}
 .hero .mk{display:flex;align-items:baseline;gap:6px;flex:none;white-space:nowrap}.hero .k{white-space:nowrap}.hero .mk b{font-size:20px;letter-spacing:3px;font-weight:600}.hero .mk span{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:2px}
+.glow{position:relative;isolation:isolate;overflow:hidden}
+.glow>*{position:relative;z-index:1}
+.glow:before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+background:
+ radial-gradient(circle at 88% 6%,rgba(194,158,134,.38) 0,rgba(194,158,134,0) 34%),
+ radial-gradient(circle at 6% 55%,rgba(214,186,168,.42) 0,rgba(214,186,168,0) 38%),
+ radial-gradient(circle at 92% 92%,rgba(176,140,120,.30) 0,rgba(176,140,120,0) 36%),
+ radial-gradient(circle at 92% 6%,transparent 0 118px,rgba(255,250,245,.55) 119px 121px,transparent 123px),
+ radial-gradient(circle at 4% 58%,transparent 0 150px,rgba(255,250,245,.45) 151px 153px,transparent 155px)}
+.glow:after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.22;mix-blend-mode:multiply;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .45 0 0 0 0 .4 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+#both.glow:before{background:
+ radial-gradient(circle at 10% 8%,rgba(214,186,168,.40) 0,rgba(214,186,168,0) 36%),
+ radial-gradient(circle at 95% 40%,rgba(194,158,134,.32) 0,rgba(194,158,134,0) 34%),
+ radial-gradient(circle at 8% 8%,transparent 0 130px,rgba(255,250,245,.5) 131px 133px,transparent 135px)}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:16px 20px;scrollbar-width:none;border-bottom:1px solid var(--line)}
 .chips::-webkit-scrollbar{display:none}
 .chips a{flex:none;font-size:13px;letter-spacing:1.5px;padding:7px 14px;border:1px solid var(--line);border-radius:30px;background:#fff8}
@@ -139,7 +154,7 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter
  <div class="lead" style="margin-top:20px">近年保養品常使用<b>植物來源</b>萃取的外泌體作為保養成分，溫和、親膚，受到越來越多人關注。</div>
 </section>
 
-<section class="alt" id="ling">
+<section class="alt glow" id="ling">
  <div class="eyebrow">Why Ganoderma</div>
  <div class="h2">為什麼是靈芝？</div>
  <div class="lead">靈芝自古被視為珍貴的養生植材。它含有<b>多醣體</b>、<b>三萜類</b>等成分，在保養品中常被用來保濕、舒緩，以及抵禦外在環境的負擔。</div>
@@ -150,7 +165,7 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter
  </div>
 </section>
 
-<section id="both">
+<section class="glow" id="both">
  <div class="eyebrow">Ganoderma × Exosome</div>
  <div class="h2">靈芝 × 外泌體</div>
  <div class="lead">從靈芝萃取出的外泌體，結合了靈芝的植萃成分與外泌體細緻的特性。</div>
@@ -175,7 +190,7 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter
 </svg></div>
 </section>
 
-<section class="alt" id="scalp">
+<section class="alt glow" id="scalp">
  <div class="eyebrow">For Your Scalp</div>
  <div class="h2">用在頭皮保養</div>
  <div class="lead">頭皮也是肌膚的一部分。洗頭只能清潔，定期保養，才能讓頭皮維持在舒服的狀態。</div>
