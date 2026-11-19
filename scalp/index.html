@@ -60,6 +60,16 @@ section{padding:56px 22px}
 .eq span{display:block;font-size:12px;color:var(--soft);margin-top:8px;line-height:1.6}
 .eq em{align-self:center;font-style:normal;font-size:22px;color:var(--rose);flex:none}
 .pic{margin-top:22px;border-radius:16px;overflow:hidden}
+.dia{margin-top:22px;border-radius:16px;overflow:hidden}
+.dia svg{display:block;width:100%;height:auto}
+.dia text{fill:#F3F1EA}
+.dia .dz{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:600;letter-spacing:3px}
+.dia .de{font-family:'Cormorant Garamond',serif;font-size:9px;letter-spacing:2.5px;fill-opacity:.85}
+.dia .dl{font-family:'Noto Serif TC',serif;font-size:10.5px;letter-spacing:1px;fill-opacity:.95}
+.dia .dt{font-family:'Noto Serif TC',serif;font-size:19px;letter-spacing:2px}
+.dia .dti{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;letter-spacing:.5px}
+.dia .db{font-family:'Noto Serif TC',serif;font-size:13px;letter-spacing:3px}
+.dia .dbe{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:2px}
 .pic img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .list{list-style:none;margin-top:18px}
 .list li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
@@ -141,7 +151,19 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter
   <div><b>外泌體</b><small>EXOSOME</small><span>奈米級<br>細緻親膚</span></div>
  </div>
  <div class="lead" style="margin-top:20px">搭配<b>微晶導入</b>等專業手法，能讓保養成分更均勻地分布，也更好被吸收。</div>
- <div class="pic"><img src="../img/space2.jpg" alt=""></div>
+ <div class="dia"><svg viewBox="0 0 400 520" role="img" aria-label="靈芝外泌體：萃取、奈米、傳遞、導入">
+ <defs>
+  <filter id="d-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="38"/></filter>
+  <filter id="d-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 1 0"/></filter>
+ </defs>
+ <rect width="400" height="520" fill="#8A928D"/>
+ <g filter="url(#d-blur)"><circle cx="70" cy="90" r="120" fill="#A7ADA5"/><circle cx="360" cy="300" r="110" fill="#6E7A78"/><circle cx="330" cy="480" r="90" fill="#B9BAB0"/><circle cx="40" cy="430" r="100" fill="#79847F"/></g>
+ <rect width="400" height="520" filter="url(#d-grain)" style="mix-blend-mode:overlay" opacity=".9"/>
+ <text x="200" y="40" text-anchor="middle" class="dt">認識靈芝外泌體</text>
+ <rect x="130" y="70" width="140" height="400" rx="70" fill="none" stroke="#F3F1EA" stroke-opacity=".7" stroke-width=".9"/>
+ <circle cx="200" cy="135" r="58" fill="none" stroke="#F3F1EA" stroke-opacity=".75" stroke-width=".9"/><text x="200" y="139" text-anchor="middle" class="dz">萃取</text><text x="200" y="157" text-anchor="middle" class="de">EXTRACT</text><line x1="258" y1="135" x2="336" y2="135" stroke="#F3F1EA" stroke-opacity=".75" stroke-width=".8"/><circle cx="336" cy="135" r="2.6" fill="#F3F1EA"/><text x="344" y="132" class="dl">植物來源</text><text x="344" y="146" class="dl">天然植萃</text><circle cx="200" cy="225" r="58" fill="none" stroke="#F3F1EA" stroke-opacity=".75" stroke-width=".9"/><text x="200" y="229" text-anchor="middle" class="dz">奈米</text><text x="200" y="247" text-anchor="middle" class="de">NANO</text><line x1="64" y1="225" x2="142" y2="225" stroke="#F3F1EA" stroke-opacity=".75" stroke-width=".8"/><circle cx="64" cy="225" r="2.6" fill="#F3F1EA"/><text x="56" y="222" text-anchor="end" class="dl">奈米級</text><text x="56" y="236" text-anchor="end" class="dl">微小囊泡</text><circle cx="200" cy="315" r="58" fill="none" stroke="#F3F1EA" stroke-opacity=".75" stroke-width=".9"/><text x="200" y="319" text-anchor="middle" class="dz">傳遞</text><text x="200" y="337" text-anchor="middle" class="de">MESSENGER</text><line x1="258" y1="315" x2="336" y2="315" stroke="#F3F1EA" stroke-opacity=".75" stroke-width=".8"/><circle cx="336" cy="315" r="2.6" fill="#F3F1EA"/><text x="344" y="312" class="dl">細胞間的</text><text x="344" y="326" class="dl">小信差</text><circle cx="200" cy="405" r="58" fill="none" stroke="#F3F1EA" stroke-opacity=".75" stroke-width=".9"/><text x="200" y="409" text-anchor="middle" class="dz">導入</text><text x="200" y="427" text-anchor="middle" class="de">INFUSE</text><line x1="64" y1="405" x2="142" y2="405" stroke="#F3F1EA" stroke-opacity=".75" stroke-width=".8"/><circle cx="64" cy="405" r="2.6" fill="#F3F1EA"/><text x="56" y="402" text-anchor="end" class="dl">搭配微晶</text><text x="56" y="416" text-anchor="end" class="dl">導入吸收</text>
+ <text x="200" y="500" text-anchor="middle" class="db">光美 <tspan class="dbe">GUĀNG MĚI</tspan></text>
+</svg></div>
 </section>
 
 <section class="alt" id="scalp">
