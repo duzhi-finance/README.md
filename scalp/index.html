@@ -54,6 +54,19 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
  radial-gradient(circle at 92% 4%,rgba(214,186,168,.30) 0,rgba(214,186,168,0) 34%),
  radial-gradient(circle at 0% 62%,rgba(226,204,190,.22) 0,rgba(226,204,190,0) 32%),
  radial-gradient(circle at 94% 4%,transparent 0 120px,rgba(255,252,248,.6) 121px 122px,transparent 124px)}
+.ph{position:relative;margin:22px 0 4px;border-radius:18px;overflow:hidden;box-shadow:0 12px 30px rgba(120,90,70,.12)}
+.ph img{display:block;width:100%;object-fit:cover}
+.ph.tall img{aspect-ratio:4/5;object-position:50% 40%}
+.ph.wide img{aspect-ratio:16/10}
+.ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(60,40,30,0) 55%,rgba(60,40,30,.42));pointer-events:none}
+.ph figcaption{position:absolute;left:18px;bottom:15px;z-index:1;color:#FBF5EE;font-size:13px;letter-spacing:2px}
+.ph figcaption i{display:block;font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:1px;margin-bottom:1px}
+.card.pc{display:flex;gap:14px;align-items:center;padding:12px}
+.card.pc .th{flex:none;width:88px;height:88px;border-radius:14px;overflow:hidden}
+.card.pc .th img{width:100%;height:100%;object-fit:cover;display:block}
+.card.pc .tc{min-width:0}
+.eq .av{display:block;width:58px;height:58px;margin:0 auto 10px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 4px #fff,0 4px 12px rgba(120,90,70,.15)}
+.eq .av img{width:100%;height:100%;object-fit:cover;display:block}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:16px 20px;scrollbar-width:none;border-bottom:1px solid var(--line)}
 .chips::-webkit-scrollbar{display:none}
 .chips a{flex:none;font-size:13px;letter-spacing:1.5px;padding:7px 14px;border:1px solid var(--line);border-radius:30px;background:#fff8}
@@ -152,8 +165,7 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter
  <div class="h2">外泌體是什麼？</div>
  <div class="lead"><b>外泌體（Exosome）</b>是細胞自然釋放的微小囊泡，大小只有奈米等級，比一般保養成分細緻許多。</div>
  <div class="lead">它就像細胞之間的「小信差」，裡面帶著蛋白質、脂質等成分，在細胞之間傳遞訊息。</div>
- <div class="dots"><i></i><i></i><i></i><i></i><i></i></div>
- <div class="cap">奈米級的微小囊泡</div>
+ <figure class="ph tall"><img src="../img/exo/vesicle.jpg" alt="外泌體示意" loading="lazy"><figcaption><i>Exosome</i>奈米級的微小囊泡</figcaption></figure>
  <div class="lead" style="margin-top:20px">近年保養品常使用<b>植物來源</b>萃取的外泌體作為保養成分，溫和、親膚，受到越來越多人關注。</div>
 </section>
 
@@ -161,10 +173,11 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter
  <div class="eyebrow">Why Ganoderma</div>
  <div class="h2">為什麼是靈芝？</div>
  <div class="lead">靈芝自古被視為珍貴的養生植材。它含有<b>多醣體</b>、<b>三萜類</b>等成分，在保養品中常被用來保濕、舒緩，以及抵禦外在環境的負擔。</div>
+ <figure class="ph wide"><img src="../img/exo/ganoderma.jpg" alt="靈芝" loading="lazy"><figcaption><i>Ganoderma</i>靈芝・珍貴的養生植材</figcaption></figure>
  <div class="cards">
-  <div class="card"><span class="n">01</span><b>多醣體</b><span>具有良好的保水力，幫助肌膚與頭皮維持滋潤。</span></div>
-  <div class="card"><span class="n">02</span><b>三萜類</b><span>靈芝特有的成分之一，常用於舒緩保養。</span></div>
-  <div class="card"><span class="n">03</span><b>天然植萃</b><span>來自植物，溫和親膚，適合日常定期保養。</span></div>
+  <div class="card pc"><div class="th"><img src="../img/exo/gel.jpg" alt="" loading="lazy"></div><div class="tc"><span class="n">01</span><b>多醣體</b><span>具有良好的保水力，幫助肌膚與頭皮維持滋潤。</span></div></div>
+  <div class="card pc"><div class="th"><img src="../img/exo/oil.jpg" alt="" loading="lazy"></div><div class="tc"><span class="n">02</span><b>三萜類</b><span>靈芝特有的成分之一，常用於舒緩保養。</span></div></div>
+  <div class="card pc"><div class="th"><img src="../img/exo/leaf.jpg" alt="" loading="lazy"></div><div class="tc"><span class="n">03</span><b>天然植萃</b><span>來自植物，溫和親膚，適合日常定期保養。</span></div></div>
  </div>
 </section>
 
@@ -173,9 +186,9 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter
  <div class="h2">靈芝 × 外泌體</div>
  <div class="lead">從靈芝萃取出的外泌體，結合了靈芝的植萃成分與外泌體細緻的特性。</div>
  <div class="eq">
-  <div><b>靈芝</b><small>GANODERMA</small><span>珍貴植萃<br>保濕・舒緩</span></div>
+  <div><i class="av"><img src="../img/exo/ganoderma.jpg" alt=""></i><b>靈芝</b><small>GANODERMA</small><span>珍貴植萃<br>保濕・舒緩</span></div>
   <em>×</em>
-  <div><b>外泌體</b><small>EXOSOME</small><span>奈米級<br>細緻親膚</span></div>
+  <div><i class="av"><img src="../img/exo/vesicle.jpg" alt=""></i><b>外泌體</b><small>EXOSOME</small><span>奈米級<br>細緻親膚</span></div>
  </div>
  <div class="lead" style="margin-top:20px">搭配<b>微晶導入</b>等專業手法，能讓保養成分更均勻地分布，也更好被吸收。</div>
  <div class="dia"><svg viewBox="0 0 400 520" role="img" aria-label="靈芝外泌體：萃取、奈米、傳遞、導入">
