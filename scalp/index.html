@@ -69,6 +69,13 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 .card.pc .tc{min-width:0}
 .eq .av{display:block;width:50px;height:50px;margin:0 auto 10px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 4px #fff,0 4px 12px rgba(120,90,70,.15)}
 .eq .av img{width:100%;height:100%;object-fit:cover;display:block;opacity:.9}
+.duo2{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:88%;margin:22px auto 0}
+.duo2 figure{position:relative;border-radius:14px;overflow:hidden}
+.duo2 img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;opacity:.72;filter:saturate(.8)}
+.duo2 figure:after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(255,250,245,.8)}
+.duo2 figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;padding:18px 0 7px;background:linear-gradient(180deg,rgba(70,48,38,0),rgba(70,48,38,.4))}
+.duo2 figcaption span{flex:1;text-align:center;font-size:10.5px;letter-spacing:1.5px;color:#FBF5EE}
+.duo-note{text-align:center;font-size:10.5px;color:#A8968A;letter-spacing:.5px;margin-top:8px}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:16px 20px;scrollbar-width:none;border-bottom:1px solid var(--line)}
 .chips::-webkit-scrollbar{display:none}
 .chips a{flex:none;font-size:13px;letter-spacing:1.5px;padding:7px 14px;border:1px solid var(--line);border-radius:30px;background:#fff8}
@@ -212,6 +219,11 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter
  <div class="eyebrow">The Scalp Ritual</div>
  <div class="h2">頭皮的細緻呵護</div>
  <div class="lead">頭皮，是被忽略的另一片肌膚。洗髮只是清潔，定期養護，才能讓頭皮回到舒適、平衡的狀態。</div>
+ <div class="duo2">
+  <figure><img src="../img/exo/follicle.jpg" alt="" loading="lazy"><figcaption><span>老廢堆積</span><span>潔淨平衡</span></figcaption></figure>
+  <figure><img src="../img/exo/scalp-ba.jpg" alt="" loading="lazy"><figcaption><span>頭皮屑困擾</span><span>清爽乾淨</span></figcaption></figure>
+ </div>
+ <p class="duo-note">＊示意圖，實際狀況因人而異</p>
  <div class="bens">
   <div class="bc"><span class="no">01</span><b>保濕滋潤</b><span class="tx">為乾燥的頭皮補充水分，減少緊繃感。</span></div>
   <div class="bc"><span class="no">02</span><b>剪燙染後的照顧</b><span class="tx">染燙後頭皮容易乾燥敏感，適時保養讓頭皮恢復舒適。</span></div>
