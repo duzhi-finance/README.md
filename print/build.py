@@ -29,7 +29,7 @@ FACE = [
          steps=BASE3 + ["緊緻安瓶微針", "木乃伊緊緻包覆術", "客製化保養導入"],
          desc="輪廓上提，氣質自然提升。",
          fit="毛孔明顯者｜臉部線條鬆弛｜雙頰下垂感｜想打造小 V 臉輪廓者"),
-    dict(name="藻針亮膚", photo=["photos/zao.jpg", ("photos/zao-before.jpg", "photos/zao-after.jpg")], badge="冬日活動", time="120 分鐘", was="$3,880", now="$2,500",
+    dict(name="藻針亮膚", photo=[("duo", "photos/zao.jpg")], badge="冬日活動", time="120 分鐘", was="$3,880", now="$2,500",
          effect=["毛孔細緻", "控油清爽", "膚觸細滑"],
          steps=BASE3 + ["矽藻針換膚", "微電 PDRN 導入", "積雪草凍膜＋照光"],
          desc="",
@@ -68,7 +68,9 @@ def photos(c):
         return ""
     parts = []
     for ph in c["photo"]:
-        if isinstance(ph, tuple):
+        if isinstance(ph, tuple) and ph[0] == "duo":
+            parts.append(f'<figure class="duo"><img src="{ph[1]}" alt=""><span class="l">BEFORE</span><span class="r">AFTER</span></figure>')
+        elif isinstance(ph, tuple):
             parts.append(f'''<div class="pair"><figure><img src="{ph[0]}" alt=""><figcaption>BEFORE</figcaption></figure>
 <figure><img src="{ph[1]}" alt=""><figcaption>AFTER</figcaption></figure></div>''')
         else:
@@ -185,6 +187,10 @@ img{display:block}
 .cb{display:flex;gap:6mm;margin-top:3.5mm}
 .ba{display:flex;gap:2.5mm;flex:none;align-items:flex-start}
 .ba img.one{display:block;max-width:76mm;max-height:64mm;width:auto;height:auto;border-radius:3mm}
+.duo{position:relative;width:76mm;border-radius:3mm;overflow:hidden}
+.duo img{display:block;width:100%}
+.duo span{position:absolute;bottom:2.5mm;font-family:'Cormorant Garamond',serif;font-size:9pt;letter-spacing:2.5pt;color:#fff;background:rgba(43,33,28,.5);padding:.6mm 2.6mm;border-radius:5mm}
+.duo .l{left:2.5mm}.duo .r{left:calc(50% + 2.5mm)}
 .pair{display:flex;flex-direction:column;gap:2.5mm}
 .pair figure{position:relative;width:27mm;height:30.75mm;border-radius:3mm;overflow:hidden}
 .pair img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}
