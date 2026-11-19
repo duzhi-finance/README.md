@@ -14,7 +14,7 @@ FACE = [
          steps=BASE3 + ["安瓶精華導入", "積雪草修護凍膜", "光療・最後一道屏障鎖水修復程序"],
          desc="第一次做臉推薦從這堂開始。",
          fit="第一次做臉的人｜毛孔、粉刺困擾｜想定期清潔保濕的人"),
-    dict(name="外泌體養膚", badge="冬日活動", time="90 分鐘", was="$3,900", now="$2,500",
+    dict(name="外泌體養膚", photo=["photos/exo.jpg"], badge="冬日活動", time="90 分鐘", was="$3,900", now="$2,500",
          effect=["水潤保濕", "提亮光澤", "穩定修護"],
          steps=BASE3 + ["奈米微創水光導入", "積雪草舒緩修復面膜", "光療・最後一道屏障鎖水修復程序"],
          desc="一次完成清潔＋修復＋水光感打造！",
@@ -24,17 +24,17 @@ FACE = [
          steps=BASE3 + ["24K 緊緻安瓶微針", "24K 金箔", "黃金面霜撥筋按摩", "EMS 導入", "黃金軟膜"],
          desc="使用 24K 純金金箔能量護理，搭配黃金面霜撥筋循環，緊緻拉提，打造透亮細緻發光肌。",
          fit="乾燥、暗沉、疲憊肌｜想要抗老緊緻的人"),
-    dict(name="木乃伊緊緻術", time="120 分鐘", was="$4,280", now="$3,800",
+    dict(name="木乃伊緊緻術", photo=["photos/mummy.jpg"], time="120 分鐘", was="$4,280", now="$3,800",
          effect=["緊緻塑顏", "毛孔細緻", "輪廓拉提"],
          steps=BASE3 + ["緊緻安瓶微針", "木乃伊緊緻包覆術", "客製化保養導入"],
          desc="輪廓上提，氣質自然提升。",
          fit="毛孔明顯者｜臉部線條鬆弛｜雙頰下垂感｜想打造小 V 臉輪廓者"),
-    dict(name="藻針亮膚", badge="冬日活動", time="120 分鐘", was="$3,880", now="$2,500",
+    dict(name="藻針亮膚", photo=["photos/zao.jpg", ("photos/zao-before.jpg", "photos/zao-after.jpg")], badge="冬日活動", time="120 分鐘", was="$3,880", now="$2,500",
          effect=["毛孔細緻", "控油清爽", "膚觸細滑"],
          steps=BASE3 + ["矽藻針換膚", "微電 PDRN 導入", "積雪草凍膜＋照光"],
          desc="",
          fit="毛孔粗大、膚觸粗糙｜油光、粉刺困擾｜想讓肌膚細緻透亮的人"),
-    dict(name="酸類亮澤課程", badge="冬日活動", time="90 分鐘", was="$3,600", now="$2,500",
+    dict(name="酸類亮澤課程", photo=["photos/acid.jpg"], badge="冬日活動", time="90 分鐘", was="$3,600", now="$2,500",
          effect=["粉刺清潔", "亮澤膚色", "代謝老化角質"],
          steps=BASE3 + ["液態皮秒（杏仁酸或水楊酸）", "舒緩按摩", "客製化軟膜"],
          desc="針對黑頭粉刺、痘痘，有效改善膚色暗沉，代謝老化角質。",
@@ -44,7 +44,7 @@ FACE = [
          steps=BASE3 + ["超聲波剷皮", "微針玻尿酸安瓶", "微電導入", "客製化軟膜"],
          desc="韓式肌膚管理",
          fit="缺水乾燥肌｜毛孔、粉刺困擾｜想要水潤光澤感的人"),
-    dict(name="潤泥秀種鑽", time="60 分鐘", was="", now="$4,398",
+    dict(name="潤泥秀種鑽", photo=["photos/zuan.jpg"], time="60 分鐘", was="", now="$4,398",
          effect=["透亮光澤", "保濕滋潤", "細緻膚觸"],
          steps=["深層潔顏・洗去臉部髒污與油光", "溫和去角質・讓肌膚更好吸收保養", "舒緩凍膜・鎮靜補水",
                 "潤泥種鑽粉・細緻鋪於肌膚", "種鑽專屬精華・專業手法按壓導入", "專屬修護面霜・薄敷鎖水防護"],
@@ -63,6 +63,19 @@ def foot(dark=False):
 <div class="fq"><div class="qr">{QR}</div><span>LINE 預約</span></div></div>'''
 
 
+def photos(c):
+    if not c.get("photo"):
+        return ""
+    parts = []
+    for ph in c["photo"]:
+        if isinstance(ph, tuple):
+            parts.append(f'''<div class="pair"><figure><img src="{ph[0]}" alt=""><figcaption>BEFORE</figcaption></figure>
+<figure><img src="{ph[1]}" alt=""><figcaption>AFTER</figcaption></figure></div>''')
+        else:
+            parts.append(f'<img class="one" src="{ph}" alt="">')
+    return f'<div class="ba">{"".join(parts)}</div>'
+
+
 def course(c):
     badge = f'<span class="badge">{c["badge"]}</span>' if c.get("badge") else ""
     was = f'<s>{c["was"]}</s>' if c["was"] else ""
@@ -72,7 +85,7 @@ def course(c):
     return f'''<div class="course">
  <div class="ch"><h3>{c["name"]}{badge}</h3><span class="tm">{c["time"]}</span><span class="pr">{was}<b>{c["now"]}</b></span></div>
  <div class="cb">
-  <div class="ba"><div class="ph"><em>BEFORE</em><span>護理前照片</span></div><div class="ph"><em>AFTER</em><span>護理後照片</span></div></div>
+  {photos(c)}
   <div class="info">
    <div class="lab">功效</div><div class="eff">{eff}</div>
    <div class="lab">課程內容</div><ol class="st">{steps}</ol>
@@ -170,7 +183,12 @@ img{display:block}
 .pr s{font-family:'Cormorant Garamond',serif;font-size:12pt;color:#B9A797;margin-right:2mm}
 .pr b{font-family:'Cormorant Garamond',serif;font-size:20pt;font-weight:600;color:var(--rose)}
 .cb{display:flex;gap:6mm;margin-top:3.5mm}
-.ba{display:flex;gap:2.5mm;flex:none}
+.ba{display:flex;gap:2.5mm;flex:none;align-items:flex-start}
+.ba img.one{display:block;max-width:76mm;max-height:64mm;width:auto;height:auto;border-radius:3mm}
+.pair{display:flex;flex-direction:column;gap:2.5mm}
+.pair figure{position:relative;width:27mm;height:30.75mm;border-radius:3mm;overflow:hidden}
+.pair img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}
+.pair figcaption{position:absolute;left:0;right:0;bottom:0;text-align:center;font-family:'Cormorant Garamond',serif;font-size:8pt;letter-spacing:2pt;color:#fff;background:rgba(43,33,28,.45);padding:.5mm 0}
 .ph{width:36mm;height:46mm;border:.35mm dashed var(--champ);border-radius:3mm;background:#FBF7F3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1mm}
 .ph em{font-style:normal;font-family:'Cormorant Garamond',serif;font-size:11pt;letter-spacing:2.5pt;color:var(--rose)}
 .ph span{font-size:7.5pt;color:#B9A797;letter-spacing:.8pt}
