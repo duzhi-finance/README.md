@@ -408,3 +408,68 @@ def scalp_html():
 
 (H / "a4-scalp.html").write_text(scalp_html(), encoding="utf-8")
 print("wrote", H / "a4-scalp.html")
+
+
+# ---------- 9:16 story version (540x960 CSS px, exported at 2x = 1080x1920) ----------
+STORY_CSS = r"""
+:root{--paper:#F6F0E9;--ink:#2B211C;--soft:#6E5B4E;--rose:#A97862;--deep:#8C5A48;--champ:#C9AE8E;--line:#E2D4C5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#ccc;font-family:'Noto Serif TC',serif;color:var(--ink)}
+.page{position:relative;width:540px;height:960px;overflow:hidden;background:var(--paper);margin:0 auto}
+.band{position:relative;height:276px;overflow:hidden}
+.band img{width:100%;height:100%;object-fit:cover;object-position:40% 55%}
+.band:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,20,15,.2),rgba(30,20,15,.68))}
+.band .t{position:absolute;left:30px;right:30px;bottom:26px;color:#fff;z-index:2}
+.band .k{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:5px;opacity:.9}
+.band h1{font-size:38px;font-weight:700;letter-spacing:5px;margin:8px 0 4px}
+.band p{font-size:15px;letter-spacing:2px;opacity:.95}
+.in{padding:20px 30px 0}
+.blk{margin-bottom:18px}
+.h3{display:flex;align-items:baseline;gap:10px;font-size:17px;font-weight:700;letter-spacing:2px;margin-bottom:9px}
+.h3 i{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:14px;color:var(--rose);letter-spacing:1px}
+.lead{font-size:12.5px;color:var(--soft);line-height:1.8;letter-spacing:.6px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.cell{background:#fff;border-radius:10px;padding:9px 6px;text-align:center;box-shadow:0 3px 10px rgba(120,90,70,.06);font-size:12.5px;font-weight:600;letter-spacing:1px}
+.ben{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+.ben div{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:10px;background:linear-gradient(135deg,#F5EBE3,#EFDFD3)}
+.ben em{font-style:normal;font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--deep);line-height:1}
+.ben b{display:block;font-size:13.5px;letter-spacing:1px}
+.ben span{display:block;font-size:10.5px;color:var(--soft);margin-top:1px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps div{padding:10px 4px;text-align:center;border-left:1px dashed var(--line)}
+.steps div:first-child{border-left:none}
+.steps em{display:block;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--champ)}
+.steps b{display:block;font-size:12.5px;letter-spacing:.5px;margin:3px 0 2px;line-height:1.45}
+.steps span{font-size:10px;color:var(--soft)}
+.foot{position:absolute;left:30px;right:30px;bottom:22px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px}
+.fl{display:flex;align-items:baseline;gap:7px}.fl b{font-size:18px;letter-spacing:3px}.fl span{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:2px}
+.fr{text-align:right;font-size:11.5px;color:var(--soft);line-height:1.6;letter-spacing:.6px}
+.note{font-size:9.5px;color:#9b8a7d;letter-spacing:.3px;line-height:1.6;margin-top:10px}
+"""
+
+
+def story_html():
+    issues = ["出油、扁塌", "乾癢、緊繃", "頭皮屑", "染燙後敏感", "髮量稀疏感", "壓力、疲勞"]
+    bens = [("01", "深層清潔", "帶走毛孔油脂與殘留"), ("02", "補水平衡", "不乾也不油"),
+            ("03", "舒壓放鬆", "放鬆頭皮與肩頸"), ("04", "蓬鬆光澤", "髮根有精神")]
+    page = f'''<section class="page">
+<div class="band"><img src="../img/top1.jpg" alt=""><div class="t"><div class="k">WHY SCALP CARE</div>
+<h1>頭皮養護是什麼？</h1><p>好的頭髮，從健康的頭皮開始。</p></div></div>
+<div class="in">
+ <div class="blk"><div class="h3">頭皮，也是肌膚<i>Scalp is Skin</i></div>
+ <p class="lead">頭皮和臉部肌膚相連，毛孔、皮脂腺分布更密集。洗髮精、造型品、汗水和油脂，日積月累容易殘留在毛孔裡；頭皮狀態不好，頭髮也難有好表現。</p></div>
+ <div class="blk"><div class="h3">你也有這些困擾嗎？</div><div class="grid">{"".join(f'<div class="cell">{x}</div>' for x in issues)}</div></div>
+ <div class="blk"><div class="h3">定期養護的好處<i>Benefits</i></div><div class="ben">{"".join(f'<div><em>{n}</em><p><b>{t}</b><span>{d}</span></p></div>' for n,t,d in bens)}</div></div>
+ <div class="blk"><div class="h3">光美頭皮養護<i>約 30 分鐘</i></div>
+ <div class="steps"><div><em>01</em><b>頭皮按摩</b><span>5 分鐘</span></div><div><em>02</em><b>靈芝外泌體<br>微晶導入</b><span>20 分鐘</span></div><div><em>03</em><b>養髮精華<br>按摩</b><span>均勻分布</span></div><div><em>04</em><b>熱敷眼罩</b><span>好好休息</span></div></div>
+ <p class="note">＊一般美容保養服務，非醫療行為；頭皮如有傷口、發炎或疾病，請先諮詢醫師。效果因人而異。</p></div>
+</div>
+<div class="foot"><div class="fl"><b>光美</b><span>GUĀNG MĚI</span></div><div class="fr">Instagram @guangmeitaiwan<br>官方 LINE 預約・全預約制</div></div>
+</section>'''
+    return f'''<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><title>光美 頭皮養護 9:16</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+TC:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>{STORY_CSS}</style></head><body>{page}</body></html>'''
+
+
+(H / "story-scalp.html").write_text(story_html(), encoding="utf-8")
+print("wrote", H / "story-scalp.html")
