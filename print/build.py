@@ -331,3 +331,74 @@ def html():
 
 (H / "a4.html").write_text(html(), encoding="utf-8")
 print("wrote", H / "a4.html")
+
+
+# ---------- standalone A4: why scalp care ----------
+SCALP_CSS = r"""
+.sw .band{position:absolute;left:0;right:0;top:0;height:60mm;overflow:hidden}
+.sw .band img{width:100%;height:100%;object-fit:cover;object-position:40% 55%}
+.sw .band:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,20,15,.15),rgba(30,20,15,.62))}
+.sw .band .t{position:absolute;left:16mm;right:16mm;bottom:7mm;color:#fff;z-index:2}
+.sw .band .k{font-family:'Cormorant Garamond',serif;font-size:11pt;letter-spacing:4pt;opacity:.9}
+.sw .band h1{font-size:30pt;font-weight:700;letter-spacing:5pt;margin:2mm 0 1mm}
+.sw .band p{font-size:12pt;letter-spacing:1.5pt;opacity:.95}
+.sw .in{top:68mm}
+.sw .h3{display:flex;align-items:baseline;gap:3mm;font-size:14pt;font-weight:700;letter-spacing:2pt;margin:0 0 2.5mm}
+.sw .h3 i{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:12pt;color:var(--rose);letter-spacing:1pt}
+.sw .blk{margin-bottom:5.5mm}
+.sw .lead{font-size:10pt;line-height:1.75}
+.sw .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}
+.sw .cell{background:#fff;border-radius:4mm;padding:3mm 3.5mm;box-shadow:0 1.5mm 4mm rgba(120,90,70,.06)}
+.sw .cell b{display:block;font-size:11.5pt;letter-spacing:1pt;margin-bottom:1mm}
+.sw .cell span{font-size:8.5pt;color:var(--soft);line-height:1.55;letter-spacing:.4pt}
+.sw .ben{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}
+.sw .ben div{text-align:center;padding:3.5mm 2mm;border-radius:4mm;background:linear-gradient(135deg,#F5EBE3,#EFDFD3)}
+.sw .ben em{display:block;font-style:normal;font-family:'Cormorant Garamond',serif;font-size:20pt;color:var(--deep);line-height:1}
+.sw .ben b{display:block;font-size:11.5pt;letter-spacing:1pt;margin:2mm 0 1mm}
+.sw .ben span{font-size:8.5pt;color:var(--soft);line-height:1.6}
+.sw .row{display:flex;gap:6mm;align-items:stretch}
+.sw .row>div{flex:1}
+.sw .flow{list-style:none;counter-reset:s}
+.sw .flow li{counter-increment:s;display:flex;gap:3mm;align-items:center;font-size:10.5pt;letter-spacing:.8pt;padding:1.6mm 0;border-bottom:.3mm dashed var(--line)}
+.sw .flow li:before{content:"0" counter(s);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15pt;color:var(--champ);width:8mm}
+.sw .offer{flex:0 0 62mm!important;border-radius:5mm;background:var(--ink);color:var(--paper);padding:5mm 6mm;display:flex;flex-direction:column;justify-content:center}
+.sw .offer .k{font-size:9pt;letter-spacing:2pt;color:var(--champ)}
+.sw .offer .p{font-family:'Cormorant Garamond',serif;font-size:44pt;line-height:1;margin:1mm 0}
+.sw .offer .p small{font-size:18pt;vertical-align:18pt;margin-right:1mm}
+.sw .offer .s{font-size:10.5pt;letter-spacing:1.5pt}
+.sw .note{font-size:8pt;color:#9b8a7d;letter-spacing:.4pt;margin-top:4mm}
+"""
+
+
+def scalp_html():
+    issues = [("出油、扁塌", "皮脂分泌旺盛，下午髮根就塌、容易有味道"),
+              ("乾癢、緊繃", "季節交替、冷氣房，頭皮容易乾燥不適"),
+              ("頭皮屑", "老廢角質與油脂堆積，看得到又很困擾"),
+              ("染燙後敏感", "化學藥劑後，頭皮容易乾燥、刺刺的"),
+              ("髮量稀疏感", "髮根無力、看起來扁塌沒有份量"),
+              ("壓力、疲勞", "長時間用腦、低頭，頭皮與肩頸緊繃")]
+    cells = "".join(f'<div class="cell"><b>{a}</b><span>{b}</span></div>' for a, b in issues)
+    bens = [("01", "深層清潔", "帶走毛孔裡的油脂與殘留"), ("02", "補水平衡", "讓頭皮水油平衡、不乾不油"),
+            ("03", "舒壓放鬆", "按摩放鬆頭皮與肩頸"), ("04", "蓬鬆光澤", "髮根有精神、秀髮更有光澤")]
+    ben = "".join(f'<div><em>{n}</em><b>{t}</b><span>{d}</span></div>' for n, t, d in bens)
+    page = f'''<section class="page sw">
+<div class="band"><img src="../img/top1.jpg" alt=""><div class="t"><div class="k">WHY SCALP CARE</div>
+<h1>頭皮養護是什麼？</h1><p>好的頭髮，從健康的頭皮開始。</p></div></div>
+<div class="in">
+ <div class="blk"><div class="h3">頭皮，也是肌膚<i>Scalp is Skin</i></div>
+ <p class="lead">頭皮和臉部肌膚是相連的，而且毛孔、皮脂腺分布更密集。我們每天都會洗臉、保養，卻常常忽略了頭皮。
+ 洗髮精、造型品、汗水和油脂，日積月累容易殘留在毛孔裡；頭皮狀態不好，頭髮自然也難有好表現。</p></div>
+ <div class="blk"><div class="h3">你也有這些困擾嗎？<i>Common Concerns</i></div><div class="grid">{cells}</div></div>
+ <div class="blk"><div class="h3">定期養護頭皮的好處<i>Benefits</i></div><div class="ben">{ben}</div></div>
+ <div class="blk"><div class="h3">光美頭皮養護<i>Our Scalp Care</i></div>
+ <div class="row"><div><ol class="flow"><li>5 分鐘頭皮按摩</li><li>20 分鐘靈芝外泌體微晶導入</li><li>外泌體養髮精華按摩</li><li>熱敷眼罩・好好休息</li></ol></div>
+ <div class="offer"><div class="k">療程約 30 分鐘・平均一次</div><div class="p"><small>$</small>880</div><div class="s">1 個月 5 次・$4,400</div></div></div>
+ <p class="note">＊本工作室提供一般美容保養服務，非醫療行為；頭皮如有傷口、發炎或疾病，請先諮詢醫師。效果因人而異。</p></div>
+</div>{foot()}</section>'''
+    return f'''<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><title>光美 頭皮養護是什麼</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+TC:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>{CSS}{SCALP_CSS}</style></head><body>{page}</body></html>'''
+
+
+(H / "a4-scalp.html").write_text(scalp_html(), encoding="utf-8")
+print("wrote", H / "a4-scalp.html")
