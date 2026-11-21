@@ -199,6 +199,31 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:26px;letter
 /* floating LINE */
 .float{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:30;width:min(440px,calc(100% - 32px));display:flex;gap:8px}
 .float a{flex:1;box-shadow:0 10px 26px rgba(0,0,0,.18)}
+
+/* about + therapist */
+.about{background:radial-gradient(120% 60% at 50% 0%,#F1DED2 0%,#F6F0E9 70%)}
+.about .sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--rose);margin-top:16px}
+.about .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px}
+.about .facts div{background:#fffc;border-radius:14px;padding:14px 6px;text-align:center}
+.about .facts b{display:block;font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--rose);font-weight:600}
+.about .facts span{font-size:11.5px;color:var(--soft);letter-spacing:1px}
+.tp{margin-top:26px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 28px rgba(120,90,70,.09)}
+.tp .top{display:flex;gap:16px;align-items:center;padding:22px 22px 0}
+.tp .pic{flex:none;width:112px;height:140px;border-radius:56px 56px 14px 14px;overflow:hidden;background:linear-gradient(160deg,#EFE2D7,#E4D2C4);display:flex;align-items:center;justify-content:center}
+.tp .pic img{width:100%;height:100%;object-fit:cover}
+.tp .pic .ph{font-size:11px;color:#A8968A;letter-spacing:1px;text-align:center;line-height:1.8}
+.tp .who{min-width:0}
+.tp .bd{padding:16px 22px 24px}
+.tp .role{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:var(--rose)}
+.tp h3{font-size:22px;letter-spacing:3px;margin:4px 0 10px}
+.tp .q{font-size:14px;line-height:1.9;color:var(--soft);letter-spacing:.6px;border-left:2px solid var(--champ);padding-left:12px;margin-bottom:16px}
+.tp ul{list-style:none}
+.tp li{display:flex;gap:10px;font-size:13.5px;letter-spacing:.6px;padding:8px 0;border-bottom:1px dashed var(--line);line-height:1.6}
+.tp li:last-child{border-bottom:none}
+.tp li:before{content:none}
+.tp .sk{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tp .sk span{font-size:11.5px;letter-spacing:1px;color:var(--rose);background:#F6ECE5;padding:4px 10px;border-radius:20px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -224,7 +249,7 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:26px;letter
 </div>
 
 <nav class="chips">
- <a href="#winter">冬日活動</a><a href="#gift">打卡就送</a><a href="#top">人氣 TOP3</a><a href="#face">臉部</a><a href="#scalp">頭皮</a><a href="#body">身體</a><a href="#heal">療癒</a><a href="#pro">美業</a><a href="#visit">交通</a>
+ <a href="#winter">冬日活動</a><a href="#gift">打卡就送</a><a href="#top">人氣 TOP3</a><a href="#face">臉部</a><a href="#scalp">頭皮</a><a href="#body">身體</a><a href="#heal">療癒</a><a href="#pro">美業</a><a href="#about">關於光美</a><a href="#visit">交通</a>
 </nav>
 
 <!-- 冬日亮膚季 -->
@@ -354,6 +379,32 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:26px;letter
   <div class="item"><div class="r1"><span class="nm">美業空間出租</span><span class="tm">月租</span></div>
    <div class="ds">東區獨立工作空間，適合美甲師、美睫師、個人美業工作者。<a href="#rent" style="color:var(--rose)">看空間 →</a></div>
    <div class="pr"><b>NT$12,000</b><em> / 月</em><span class="nego">可議價</span></div></div>
+ </div>
+</section>
+
+<!-- 關於光美 -->
+<section class="about" id="about">
+ <div class="eyebrow">About Guāng Měi</div>
+ <div class="h2">東區光美療癒</div>
+ <div class="lead">在台北東區的巷弄裡，光美是一間預約制的療癒系美容工作室。我們相信，好的保養不只是讓肌膚變好，也是一段讓自己慢下來、好好被照顧的時間。</div>
+ <div class="lead" style="margin-top:12px">從做臉、頭皮養護、除毛到水晶療癒，每一堂課都會先了解你的狀況，再一起決定最適合的方式。</div>
+ <div class="facts" hidden><div><b>1 對 1</b><span>全預約制</span></div><div><b>[ ]</b><span>年專業經驗</span></div><div><b>[ ]</b><span>位顧客信任</span></div></div>
+ <div class="sig">— Be gentle with yourself</div>
+
+ <div class="tp" id="therapist" hidden>
+  <div class="top">
+   <div class="pic"><div class="ph">[ 照片 ]<br>直式半身</div></div>
+   <div class="who"><div class="role">BEAUTY THERAPIST</div><h3>[美容師名字]</h3><div class="sk" style="margin-top:6px"><span>[擅長]</span><span>[擅長]</span></div></div>
+  </div>
+  <div class="bd">
+   <p class="q">[一句理念，例如：希望每位來到光美的人，都能帶著放鬆與光采離開。]</p>
+   <ul>
+    <li>[美容相關證照，例如：美容丙級技術士]</li>
+    <li>[經歷，例如：曾任 ○○ 美容中心美容師 ○ 年]</li>
+    <li>[進修／課程，例如：韓式肌膚管理、外泌體導入認證]</li>
+    <li>[其他，例如：服務超過 ○○○ 位顧客]</li>
+   </ul>
+  </div>
  </div>
 </section>
 
