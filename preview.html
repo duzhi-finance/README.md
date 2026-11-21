@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>光美 GUĀNG MĚI｜課程 Menu</title>
+<link rel="icon" href="icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-title" content="光美">
+<meta name="application-name" content="光美">
+<meta name="theme-color" content="#F6F0E9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+TC:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F6F0E9;--paper2:#EFE5DA;--ink:#2B211C;--soft:#7A6658;--nude:#C29E86;--rose:#A97862;--champ:#C9AE8E;--line:#E2D4C5;--dark:#1E1A17}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{background:#E9DFD4;font-family:'Noto Serif TC',serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.wrap{max-width:480px;margin:0 auto;background:var(--paper);min-height:100vh;box-shadow:0 0 60px rgba(60,40,30,.12);overflow:hidden}
+.lat{font-family:'Cormorant Garamond',serif}
+.it{font-family:'Cormorant Garamond',serif;font-style:italic}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:rgba(246,240,233,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:baseline;gap:8px}
+.brand b{font-size:18px;letter-spacing:4px;font-weight:600}
+.brand span{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:40px;font-size:14px;letter-spacing:1.5px;padding:10px 20px;font-weight:600;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn-line{background:#06C755;color:#fff}
+.btn-dark{background:var(--ink);color:var(--paper)}
+.btn-ghost{border:1px solid currentColor}
+.bar .btn{padding:7px 14px;font-size:12.5px}
+
+/* hero */
+.hero{position:relative;height:620px;color:#fff}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,25,18,.15) 0%,rgba(40,25,18,.05) 35%,rgba(40,25,18,.65) 100%)}
+.hero .in{position:absolute;left:24px;right:24px;bottom:36px;z-index:2}
+.hero .k{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:5px;opacity:.9}
+.hero h1{font-size:64px;font-weight:700;letter-spacing:14px;line-height:1.1;margin:8px 0 4px}
+.hero .en{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:6px}
+.hero p{font-size:15px;letter-spacing:2px;line-height:1.9;margin:14px 0 22px;opacity:.95}
+.hero .ctas{display:flex;gap:10px}
+.hero .btn-ghost{color:#fff}
+
+/* nav chips */
+.chips{display:flex;gap:8px;overflow-x:auto;padding:16px 20px;scrollbar-width:none;border-bottom:1px solid var(--line)}
+.chips::-webkit-scrollbar{display:none}
+.chips a{flex:none;font-size:13px;letter-spacing:1.5px;padding:7px 14px;border:1px solid var(--line);border-radius:30px;background:#fff8}
+
+/* sections */
+section{padding:56px 22px}
+.eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--rose)}
+.h2{font-size:28px;font-weight:700;letter-spacing:4px;margin:4px 0 8px}
+.lead{font-size:14px;line-height:1.9;color:var(--soft);letter-spacing:1px}
+.rule{display:flex;align-items:center;gap:10px;margin:18px 0}
+.rule i{flex:1;height:1px;background:var(--line)}
+.rule b{width:5px;height:5px;background:var(--champ);transform:rotate(45deg)}
+
+/* campaign */
+.camp{background:radial-gradient(120% 70% at 50% 0%,#F1DED2 0%,#F6F0E9 70%);text-align:center}
+.camp .date{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:4px;color:var(--soft);margin-top:6px}
+.camp h2{font-size:44px;font-weight:900;letter-spacing:6px;margin:10px 0 0}
+.price{display:flex;justify-content:center;align-items:center;gap:12px;margin:18px 0 6px}
+.price .lab{font-size:13px;letter-spacing:2px;color:var(--rose);border:1px solid var(--rose);border-radius:30px;padding:4px 12px}
+.price .num{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:500;color:var(--rose);line-height:1}
+.price .num small{font-size:34px;vertical-align:24px;margin-right:2px}
+.camp ol{list-style:none;margin-top:22px;text-align:left;border-top:1px solid var(--line)}
+.camp li{display:flex;align-items:center;gap:14px;padding:14px 4px;border-bottom:1px solid var(--line)}
+.camp li .n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--champ);width:26px}
+.camp li .t{flex:1}
+.camp li .t b{display:block;font-size:16px;letter-spacing:1.5px}
+.camp li .t span{font-size:12px;color:var(--soft);letter-spacing:1px}
+.camp li s{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--champ)}
+
+/* gift (translucent) */
+.gift{position:relative;color:var(--ink);padding:0}
+.gift .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 45%;filter:blur(1.5px)}
+.gift .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(248,239,231,.72),rgba(246,233,223,.42) 50%,rgba(248,239,231,.78))}
+.gift .in{position:relative;padding:60px 24px}
+.gift .h2{font-size:40px;letter-spacing:8px}
+.gift .sub{font-size:14px;letter-spacing:2px;color:var(--soft);margin-bottom:22px}
+.glass{background:rgba(255,255,255,.38);border:1px solid rgba(255,255,255,.75);border-radius:18px;backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);box-shadow:0 10px 30px rgba(120,90,70,.12),inset 0 1px 0 rgba(255,255,255,.8)}
+.step{display:flex;gap:14px;align-items:center;padding:15px 18px;border-top:1px solid rgba(255,255,255,.6)}
+.step:first-child{border-top:none}
+.step .n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:var(--rose);width:30px}
+.step b{font-size:15px;letter-spacing:1.2px;font-weight:600;display:block}
+.step span{font-size:12px;color:var(--soft);letter-spacing:.8px}
+.giftrow{margin-top:20px}
+.giftrow p{font-size:13px;line-height:1.8;letter-spacing:1px;color:var(--ink)}
+.giftrow p .it{color:var(--rose);font-size:17px}
+.small{font-size:11px;color:var(--soft);letter-spacing:.8px;margin-top:16px}
+
+/* top3 */
+.top{display:grid;grid-template-columns:1fr;gap:16px;margin-top:20px}
+.tcard{display:flex;gap:14px;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 24px rgba(120,90,70,.08)}
+.tcard img{width:120px;height:150px;object-fit:cover;flex:none}
+.tcard .b{padding:14px 14px 14px 0;display:flex;flex-direction:column;justify-content:center}
+.tcard .rank{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:var(--rose)}
+.tcard h3{font-size:17px;letter-spacing:1.5px;margin:3px 0 4px}
+.tcard .p{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--rose)}
+.tcard .tags{font-size:11.5px;color:var(--soft);letter-spacing:1px;margin-top:4px}
+
+
+details.tcard{display:block;padding:0;margin-bottom:14px}
+details.tcard summary{display:flex;gap:14px;list-style:none;cursor:pointer}
+details.tcard summary::-webkit-details-marker{display:none}
+.more{margin-top:8px;font-size:12px;letter-spacing:1.5px;color:var(--rose);display:flex;align-items:center;gap:6px}
+.more i{font-style:normal;display:inline-flex;width:18px;height:18px;border:1px solid var(--rose);border-radius:50%;align-items:center;justify-content:center;font-size:11px;transition:transform .25s}
+details[open] .more i{transform:rotate(45deg)}
+.flow{padding:4px 18px 18px;border-top:1px solid var(--line);margin-top:0;animation:fl .3s ease}
+@keyframes fl{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.flow .fh{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:var(--rose);margin:14px 0 6px}
+.flow ol{list-style:none}
+.flow li{display:flex;gap:12px;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--line);font-size:14px;letter-spacing:1px}
+.flow li:last-child{border-bottom:none}
+.flow li span{color:var(--champ);font-size:15px;flex:none}
+/* menu list */
+.cat{margin-top:34px}
+.cat-h{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1.5px solid var(--ink);padding-bottom:8px}
+.cat-h h3{font-size:20px;letter-spacing:4px}
+.cat-h span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--soft)}
+.item{padding:16px 0;border-bottom:1px solid var(--line)}
+.item .r1{display:flex;align-items:baseline;gap:8px}
+.item .nm{font-size:16.5px;font-weight:600;letter-spacing:1.2px;flex:1}
+.item .tm{font-size:12px;color:var(--soft);letter-spacing:1px;white-space:nowrap}
+.item .r2{display:flex;align-items:baseline;justify-content:space-between;margin-top:2px}
+.item .ds{font-size:13px;color:var(--soft);line-height:1.75;letter-spacing:.6px;margin-top:6px}
+.pr{white-space:nowrap;text-align:right}
+.pr s{font-family:'Cormorant Garamond',serif;font-size:15px;color:#B9A797;margin-right:6px}
+.pr b{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--rose)}
+.pr em{font-style:normal;font-size:12px;color:var(--soft);letter-spacing:1px}
+.badge{display:inline-block;font-size:10.5px;letter-spacing:1px;padding:2px 8px;border-radius:20px;background:#F1DED2;color:var(--rose);margin-left:6px;vertical-align:2px;font-weight:400}
+.sh{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:2px;color:var(--rose);margin-top:8px}
+.steps{list-style:none;counter-reset:st;margin:4px 0 2px}
+.steps li{counter-increment:st;display:flex;gap:8px;font-size:13px;line-height:1.7;letter-spacing:.6px;color:var(--ink)}
+.steps li:before{content:counter(st);flex:none;width:17px;height:17px;margin-top:3px;border-radius:50%;background:#F1DED2;color:var(--rose);font-size:10.5px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif}
+.fit{font-size:12.5px;color:var(--soft);line-height:1.75;letter-spacing:.6px;margin-top:6px}
+.fit b{font-weight:600;color:var(--rose);margin-right:8px}
+.plan{margin-top:22px;border-radius:18px;padding:24px 22px;background:linear-gradient(135deg,#F5EBE3 0%,#EFDFD3 100%);box-shadow:0 8px 24px rgba(120,90,70,.08)}
+.plan .pk{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:4px;color:var(--ink)}
+.plan .pl{font-size:15px;letter-spacing:3px}
+.plan .pb{font-family:'Cormorant Garamond',serif;font-size:76px;font-weight:500;line-height:1;color:#8C5A48}
+.plan .pb small{font-size:30px;vertical-align:36px;margin-right:2px}
+.plan .pt{font-size:15px;letter-spacing:2px;margin-top:6px}
+.plan hr{border:none;width:44px;height:1.5px;background:var(--ink);margin:16px 0 14px}
+.plan .sh{margin-top:0}
+.plan .steps li:before{background:#fff9}
+.plan .note{margin-top:14px;font-size:12.5px;line-height:1.85;letter-spacing:.8px;color:var(--soft)}
+.plan .note b{display:block;color:var(--rose);font-weight:600;letter-spacing:2px}
+.legend{display:flex;justify-content:flex-end;gap:14px;font-size:11.5px;color:var(--soft);margin-top:10px;letter-spacing:1px}
+
+/* first time */
+.howto{background:var(--paper2)}
+.how{counter-reset:s;margin-top:18px}
+.how div{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.how div:before{counter-increment:s;content:"0" counter(s);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--champ);width:30px;line-height:1.1}
+.how b{display:block;font-size:15px;letter-spacing:1.2px}
+.how span{font-size:12.5px;color:var(--soft);letter-spacing:.6px;line-height:1.7}
+
+/* gallery */
+.gal{display:flex;gap:10px;overflow-x:auto;margin:20px -22px 0;padding:0 22px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.gal::-webkit-scrollbar{display:none}
+.gal img{flex:none;width:72%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;scroll-snap-align:start}
+
+/* rent */
+.rent{background:radial-gradient(120% 70% at 50% 100%,#F1DED2 0%,#F6F0E9 70%)}
+.rent .pic{position:relative;margin-top:18px;border-radius:16px;overflow:hidden}
+.rent .pic span{position:absolute;left:10px;top:10px;font-size:11px;background:#fffd;padding:3px 10px;border-radius:20px;letter-spacing:1px}
+.rent ul{list-style:none;margin:16px 0}
+.rent li{font-size:14px;letter-spacing:1px;padding:7px 0;display:flex;gap:10px;align-items:center}
+.rent li:before{content:"";width:6px;height:6px;border:1px solid var(--rose);transform:rotate(45deg);flex:none}
+.rent .rp{display:flex;align-items:baseline;gap:8px;flex-wrap:nowrap;white-space:nowrap}
+.rent .rp .lead{white-space:nowrap}
+.nego{white-space:nowrap}
+.rent .rp b{font-family:"Cormorant Garamond",serif;font-size:34px;font-weight:600}
+
+.nego{display:inline-block;font-size:12px;letter-spacing:1.5px;color:#fff;background:var(--rose);padding:3px 10px;border-radius:20px;margin-left:8px;vertical-align:4px;font-family:'Noto Serif TC',serif}
+/* visit */
+.visit .card{background:#fff;border-radius:18px;padding:20px;margin-top:18px;box-shadow:0 8px 24px rgba(120,90,70,.07)}
+.visit dl{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;font-size:14px;letter-spacing:.8px}
+.visit dt{color:var(--soft)}
+.visit .map{margin-top:16px;width:100%}
+
+/* footer */
+footer{background:var(--dark);color:#F3EEE6;text-align:center;padding:52px 24px 90px}
+footer .brand{justify-content:center}
+footer .ctas{display:flex;flex-direction:column;gap:10px;margin:24px auto 0;max-width:300px}
+footer .btn-ghost{color:#F3EEE6}
+footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:26px;letter-spacing:.6px}
+
+/* floating LINE */
+.float{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:30;width:min(440px,calc(100% - 32px));display:flex;gap:8px}
+.float a{flex:1;box-shadow:0 10px 26px rgba(0,0,0,.18)}
+
+/* about + therapist */
+.about{background:radial-gradient(120% 60% at 50% 0%,#F1DED2 0%,#F6F0E9 70%)}
+.about .sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--rose);margin-top:16px}
+.about .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px}
+.about .facts div{background:#fffc;border-radius:14px;padding:14px 6px;text-align:center}
+.about .facts b{display:block;font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--rose);font-weight:600}
+.about .facts span{font-size:11.5px;color:var(--soft);letter-spacing:1px}
+.tp{margin-top:26px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 28px rgba(120,90,70,.09)}
+.tp .pic{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#EFE2D7,#E4D2C4);display:flex;align-items:center;justify-content:center}
+.tp .pic img{width:100%;height:100%;object-fit:cover}
+.tp .pic .ph{font-size:13px;color:#A8968A;letter-spacing:2px;text-align:center;line-height:2}
+.tp .bd{padding:22px 22px 24px}
+.tp .role{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:3px;color:var(--rose)}
+.tp h3{font-size:22px;letter-spacing:3px;margin:4px 0 10px}
+.tp .q{font-size:14px;line-height:1.9;color:var(--soft);letter-spacing:.6px;border-left:2px solid var(--champ);padding-left:12px;margin-bottom:16px}
+.tp ul{list-style:none}
+.tp li{display:flex;gap:10px;font-size:13.5px;letter-spacing:.6px;padding:8px 0;border-bottom:1px dashed var(--line);line-height:1.6}
+.tp li:last-child{border-bottom:none}
+.tp li:before{content:"";flex:none;width:5px;height:5px;margin-top:9px;border:1px solid var(--rose);transform:rotate(45deg)}
+.tp .sk{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tp .sk span{font-size:11.5px;letter-spacing:1px;color:var(--rose);background:#F6ECE5;padding:4px 10px;border-radius:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="bar">
+ <div class="brand"><b>光美</b><span>GUĀNG MĚI</span></div>
+ <a class="btn btn-line" href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">LINE 預約</a>
+</header>
+
+<div class="hero">
+ <img src="img/hero.jpg" alt="">
+ <div class="in">
+  <div class="k">BEAUTY · HEALING · YOU</div>
+  <h1>光美</h1>
+  <div class="en">GUĀNG MĚI</div>
+  <p>東區療癒系美容工作室<br>做臉保養・頭皮養護・全身除毛・水晶療癒</p>
+  <div class="ctas">
+   <a class="btn btn-line" href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">加 LINE 預約</a>
+   <a class="btn btn-ghost" href="#menu">看課程 Menu</a>
+  </div>
+ </div>
+</div>
+
+<nav class="chips">
+ <a href="#winter">冬日活動</a><a href="#gift">打卡就送</a><a href="#top">人氣 TOP3</a><a href="#face">臉部</a><a href="#scalp">頭皮</a><a href="#body">身體</a><a href="#heal">療癒</a><a href="#pro">美業</a><a href="#about">關於光美</a><a href="#visit">交通</a>
+</nav>
+
+<!-- 冬日亮膚季 -->
+<section class="camp" id="winter">
+ <div class="eyebrow">Winter Glow Season</div>
+ <h2>冬日亮膚季</h2>
+ <div class="date">2026.11.01 — 2027.01.31</div>
+ <div class="rule"><i></i><b></b><i></i></div>
+ <div class="lead">五大人氣課程　任選一堂</div>
+ <div class="price"><span class="lab">活動價</span><span class="num"><small>$</small>2,500</span></div>
+ <ol>
+  <li><span class="n">01</span><span class="t"><b>外泌體養膚</b><span>保濕・提亮・穩定</span></span><s>$3,900</s></li>
+  <li><span class="n">02</span><span class="t"><b>外泌體養髮</b><span>頭皮・髮根・蓬鬆</span></span><s>$3,900</s></li>
+  <li><span class="n">03</span><span class="t"><b>藻針亮膚</b><span>毛孔・油光・清爽</span></span><s>$3,880</s></li>
+  <li><span class="n">04</span><span class="t"><b>酸類亮澤課程</b><span>粉刺・暗沉</span></span><s>$3,600</s></li>
+  <li><span class="n">05</span><span class="t"><b>淨透水光肌</b><span>清潔・水潤</span></span><s>$3,200</s></li>
+ </ol>
+ <div style="margin-top:24px"><a class="btn btn-dark" href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">LINE 預約活動課程</a></div>
+</section>
+
+<!-- 打卡就送 -->
+<section class="gift" id="gift">
+ <img class="bg" src="img/giftbg.jpg" alt="">
+ <div class="veil"></div>
+ <div class="in">
+  <div class="eyebrow">a little gift for you</div>
+  <div class="h2">打卡就送</div>
+  <div class="sub">隨身香氛清潔噴霧・檸檬草 20ml</div>
+  <div class="glass">
+   <div class="step"><span class="n">01</span><div><b>在店內拍照打卡</b><span>空間、療程、喜歡的角落都可以</span></div></div>
+   <div class="step"><span class="n">02</span><div><b>限動標記 @guangmeitaiwan</b><span>帳號記得公開，我們才看得到</span></div></div>
+   <div class="step"><span class="n">03</span><div><b>保留 24 小時，出示給我們</b><span>現場送你一個隨身噴霧</span></div></div>
+  </div>
+  <div class="giftrow">
+   <p>加入法國有機芳療品牌 <span class="it">Le Comptoir Aroma</span><br>檸檬草精油，清新草本柑橘香</p>
+  </div>
+  <div class="small">＊[活動期間・數量有限，送完為止]　外用清潔噴霧，請勿噴向眼睛，遠離火源</div>
+ </div>
+</section>
+
+<!-- TOP3 -->
+<section id="top">
+ <div class="eyebrow">Best Sellers</div>
+ <div class="h2">人氣 TOP 3</div>
+ <div class="lead">第一次來不知道選哪個？從大家最常做的開始。點開看看每堂課怎麼做。</div>
+ <div class="top">
+  <details class="tcard"><summary><img src="img/top1.jpg" alt=""><div class="b"><div class="rank">TOP 01</div><h3>外泌體養髮課程</h3><div class="p">$3,500</div><div class="tags">頭皮清潔・按摩・髮根蓬鬆感</div><div class="more">看流程 <i>＋</i></div></div></summary><div class="flow"><div class="fh">課程流程・4 步驟</div><ol><li><span>❶</span>臉部基礎保養・清潔＋去角質＋精華液導入＋面膜</li><li><span>❷</span>頭部 EMS 奈米微晶導入</li><li><span>❸</span>頭皮水光槍修護</li><li><span>❹</span>頭皮舒壓按摩</li></ol></div></details>
+  <details class="tcard"><summary><img src="img/top2.jpg" alt=""><div class="b"><div class="rank">TOP 02</div><h3>24K 黃金撥筋課程</h3><div class="p">$3,800</div><div class="tags">撥筋手技・放鬆臉部・光澤感</div><div class="more">看流程 <i>＋</i></div></div></summary><div class="flow"><div class="fh">課程流程・8 步驟</div><ol><li><span>❶</span>薰衣草熱蒸・喚醒肌膚</li><li><span>❷</span>韓式雙效水循環小氣泡</li><li><span>❸</span>手清粉刺・毛孔潔淨</li><li><span>❹</span>24K 緊緻安瓶・微針導入</li><li><span>❺</span>24K 金箔能量護理</li><li><span>❻</span>黃金面霜・撥筋按摩</li><li><span>❼</span>EMS 導入・緊緻提拉</li><li><span>❽</span>黃金軟膜・縮水修護</li></ol></div></details>
+  <details class="tcard"><summary><img src="img/top3.jpg" alt=""><div class="b"><div class="rank">TOP 03</div><h3>木乃伊緊緻術課程</h3><div class="p">$3,800</div><div class="tags">敷貼包覆・輪廓按摩・緊緻感</div><div class="more">看流程 <i>＋</i></div></div></summary><div class="flow"><div class="fh">課程流程・6 步驟</div><ol><li><span>❶</span>薰衣草熱蒸</li><li><span>❷</span>韓式雙效水循環小氣泡</li><li><span>❸</span>手清粉刺・毛孔潔淨</li><li><span>❹</span>緊緻安瓶・微針導入</li><li><span>❺</span>木乃伊緊緻包覆術</li><li><span>❻</span>客製化保養導入</li></ol></div></details>
+ </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" style="padding-top:20px">
+ <div class="eyebrow">Course Menu</div>
+ <div class="h2">課程價目表</div>
+ <div class="lead">每一堂課都會先看看你的狀況，再一起決定怎麼做。</div>
+ <div class="legend"><span><s style="color:#B9A797">原價</s></span><span style="color:var(--rose)">體驗價</span></div>
+
+ <div class="cat" id="face">
+  <div class="cat-h"><h3>臉部保養</h3><span>Facial Care</span></div>
+  <div class="item"><div class="r1"><span class="nm">韓式雙效水循環</span><span class="tm">80 分鐘</span></div>
+   <div class="sh">課程內容</div><ol class="steps"><li>薰衣草熱蒸喚醒肌膚</li><li>韓式雙效水循環小氣泡</li><li>手清粉刺毛孔潔淨</li><li>安瓶精華導入</li><li>積雪草修護凍膜</li><li>光療・最後一道屏障鎖水修復程序</li></ol><div class="ds">第一次做臉推薦從這堂開始。</div><div class="fit"><b>適合</b>第一次做臉的人｜毛孔、粉刺困擾｜想定期清潔保濕的人</div>
+   <div class="pr"><s>$2,000</s><b>$1,800</b></div></div>
+  <div class="item"><div class="r1"><span class="nm">外泌體養膚<span class="badge">冬日活動</span></span><span class="tm">90 分鐘</span></div>
+   <div class="sh">課程內容</div><ol class="steps"><li>薰衣草熱蒸喚醒肌膚</li><li>韓式雙效水循環小氣泡</li><li>手清粉刺毛孔潔淨</li><li>奈米微創水光導入</li><li>積雪草舒緩修復面膜</li><li>光療・最後一道屏障鎖水修復程序</li></ol><div class="ds">一次完成清潔＋修復＋水光感打造！</div><div class="fit"><b>適合</b>所有膚質｜改善暗沉、蠟黃、痘痘｜幫助雷射術後修護｜敏弱肌重建肌膚屏障</div>
+   <div class="pr"><s>$3,900</s><b>$2,500</b></div></div>
+  <div class="item"><div class="r1"><span class="nm">24K 黃金撥筋</span><span class="tm">120 分鐘</span></div>
+   <div class="sh">課程內容</div><ol class="steps"><li>薰衣草熱蒸喚醒肌膚</li><li>韓式雙效水循環小氣泡</li><li>手清粉刺毛孔潔淨</li><li>24K 緊緻安瓶微針</li><li>24K 金箔</li><li>黃金面霜撥筋按摩</li><li>EMS 導入</li><li>黃金軟膜</li></ol><div class="ds">使用 24K 純金金箔能量護理，搭配黃金面霜撥筋循環，緊緻拉提，打造透亮細緻發光肌。</div><div class="fit"><b>適合</b>乾燥、暗沉、疲憊肌｜想要抗老緊緻的人</div>
+   <div class="pr"><s>$4,280</s><b>$3,800</b></div></div>
+  <div class="item"><div class="r1"><span class="nm">木乃伊緊緻術</span><span class="tm">120 分鐘</span></div>
+   <div class="sh">課程內容</div><ol class="steps"><li>薰衣草熱蒸喚醒肌膚</li><li>韓式雙效水循環小氣泡</li><li>手清粉刺毛孔潔淨</li><li>緊緻安瓶微針</li><li>木乃伊緊緻包覆術</li><li>客製化保養導入</li></ol><div class="ds">緊緻塑顏・毛孔細緻・輪廓拉提<br>輪廓上提，氣質自然提升。</div><div class="fit"><b>適合</b>毛孔明顯者｜臉部線條鬆弛｜雙頰下垂感｜想打造小 V 臉輪廓者</div>
+   <div class="pr"><s>$4,280</s><b>$3,800</b></div></div>
+  <div class="item"><div class="r1"><span class="nm">藻針亮膚<span class="badge">冬日活動</span></span><span class="tm">120 分鐘</span></div>
+   <div class="sh">課程內容</div><ol class="steps"><li>薰衣草熱蒸喚醒肌膚</li><li>韓式雙效水循環小氣泡</li><li>手清粉刺毛孔潔淨</li><li>矽藻針換膚</li><li>微電 PDRN 導入</li><li>積雪草凍膜＋照光</li></ol><div class="fit"><b>適合</b>毛孔粗大、膚觸粗糙｜油光、粉刺困擾｜想讓肌膚細緻透亮的人</div>
+   <div class="pr"><s>$3,880</s><b>$2,500</b></div></div>
+  <div class="item"><div class="r1"><span class="nm">酸類亮澤課程<span class="badge">冬日活動</span></span><span class="tm">90 分鐘</span></div>
+   <div class="sh">課程內容</div><ol class="steps"><li>薰衣草熱蒸喚醒肌膚</li><li>韓式雙效水循環小氣泡</li><li>手清粉刺毛孔潔淨</li><li>液態皮秒（杏仁酸或水楊酸）</li><li>舒緩按摩</li><li>客製化軟膜</li></ol><div class="ds">針對黑頭粉刺、痘痘，有效改善膚色暗沉，代謝老化角質。</div><div class="fit"><b>適合</b>黑頭粉刺、痘痘肌｜膚色暗沉｜角質堆積、膚觸粗糙</div>
+   <div class="pr"><s>$3,600</s><b>$2,500</b></div></div>
+  <div class="item"><div class="r1"><span class="nm">淨透水光肌<span class="badge">冬日活動</span></span><span class="tm">90 分鐘</span></div>
+   <div class="sh">課程內容</div><ol class="steps"><li>薰衣草熱蒸喚醒肌膚</li><li>韓式雙效水循環小氣泡</li><li>手清粉刺毛孔潔淨</li><li>超聲波剷皮</li><li>微針玻尿酸安瓶</li><li>微電導入</li><li>客製化軟膜</li></ol><div class="ds">韓式肌膚管理</div><div class="fit"><b>適合</b>缺水乾燥肌｜毛孔、粉刺困擾｜想要水潤光澤感的人</div>
+   <div class="pr"><s>$3,200</s><b>$2,500</b></div></div>
+  <div class="item"><div class="r1"><span class="nm">潤泥秀種鑽</span><span class="tm">60 分鐘</span></div>
+   <div class="sh">課程內容</div><ol class="steps"><li>深層潔顏・洗去臉部髒污與油光</li><li>溫和去角質・讓肌膚更好吸收保養</li><li>舒緩凍膜・鎮靜補水</li><li>潤泥種鑽粉・細緻鋪於肌膚</li><li>種鑽專屬精華・專業手法按壓導入</li><li>專屬修護面霜・薄敷鎖水防護</li></ol><div class="ds">以潤泥種鑽粉搭配專屬精華與按壓手法，讓保養更好吸收，肌膚透出細緻光澤。</div><div class="fit"><b>適合</b>乾燥暗沉肌｜想讓肌膚透亮有光澤｜重要場合前想加強保養的人</div>
+   <div class="pr"><b>$4,398</b></div></div>
+ </div>
+
+ <div class="cat" id="scalp">
+  <div class="cat-h"><h3>頭皮養護</h3><span>Scalp Care</span></div>
+  <div class="item"><div class="r1"><span class="nm">外泌體養髮<span class="badge">TOP 1</span><span class="badge">冬日活動</span></span><span class="tm">90 分鐘</span></div>
+   <div class="sh">課程內容</div><ol class="steps"><li>臉部基礎保養・清潔＋去角質＋精華液導入＋面膜</li><li>頭部 EMS 奈米微晶導入</li><li>頭皮水光槍修護</li><li>頭皮舒壓按摩</li></ol><div class="ds">頭皮養護加上臉部基礎保養，一次照顧頭皮與肌膚。</div><div class="fit"><b>適合</b>頭皮容易出油、髮量稀疏困擾｜染燙受損｜想養護頭皮健康、讓秀髮光澤亮麗｜想好好舒壓放鬆的人</div>
+   <div class="pr"><s>$3,900</s><b>$2,500</b></div></div>
+
+  <div class="plan">
+   <div class="pl">頭皮養護，平均一次</div>
+   <div class="pb"><small>$</small>880</div>
+   <div class="pt">1 個月 5 次・<b>$4,400</b></div>
+   <hr>
+   <div class="sh">療程約 30 分鐘</div>
+   <ol class="steps"><li>5 分鐘頭皮按摩</li><li>20 分鐘靈芝外泌體微晶導入</li><li>外泌體育髮精華按摩 3 分鐘</li><li>熱敷眼罩</li></ol>
+   <div class="note"><b>注意事項</b>・來店前務必清潔頭皮<br>・療程當天請勿洗頭<br>・限一個月內使用完畢</div>
+  </div>
+ </div>
+
+ <div class="cat" id="body">
+  <div class="cat-h"><h3>身體・除毛</h3><span>Body &amp; Waxing</span></div>
+  <div class="item"><div class="r1"><span class="nm">全身除毛冰肌</span><span class="tm">[時間]</span></div>
+   <div class="ds">以 Rica 熱蠟除去身體細毛，結束後冰鎮舒緩，皮膚摸起來更光滑。</div>
+   <div class="pr"><em>價格請洽官方 LINE</em></div></div>
+ </div>
+
+ <div class="cat" id="heal">
+  <div class="cat-h"><h3>水晶療癒</h3><span>Healing</span></div>
+  <div class="item"><div class="r1"><span class="nm">水晶盤浴</span><span class="tm">40 分鐘</span></div>
+   <div class="ds">躺在溫熱的水晶盤上，放鬆身體、好好流汗，給自己一段安靜的時間。</div>
+   <div class="pr"><s>$1,800</s><b>$1,400</b></div></div>
+  <div class="item"><div class="r1"><span class="nm">水晶療癒課程</span><span class="tm">[時間]</span></div>
+   <div class="ds">用水晶陪你沉澱心情，結束時會收到一張專屬祝福小卡。</div>
+   <div class="pr"><em>價格請洽官方 LINE</em></div></div>
+ </div>
+
+ <div class="cat" id="pro">
+  <div class="cat-h"><h3>美業教學・空間</h3><span>For Pros</span></div>
+  <div class="item"><div class="r1"><span class="nm">美業創業教學</span><span class="tm"></span></div>
+   <div class="ds">[課程內容待補]</div>
+   <div class="pr"><em>請洽官方 LINE</em></div></div>
+  <div class="item"><div class="r1"><span class="nm">美業空間出租</span><span class="tm">月租</span></div>
+   <div class="ds">東區獨立工作空間，適合美甲師、美睫師、個人美業工作者。<a href="#rent" style="color:var(--rose)">看空間 →</a></div>
+   <div class="pr"><b>NT$12,000</b><em> / 月</em><span class="nego">可議價</span></div></div>
+ </div>
+</section>
+
+<!-- 關於光美 -->
+<section class="about" id="about">
+ <div class="eyebrow">About Guāng Měi</div>
+ <div class="h2">東區光美療癒</div>
+ <div class="lead">在台北東區的巷弄裡，光美是一間預約制的療癒系美容工作室。我們相信，好的保養不只是讓肌膚變好，也是一段讓自己慢下來、好好被照顧的時間。</div>
+ <div class="lead" style="margin-top:12px">從做臉、頭皮養護、除毛到水晶療癒，每一堂課都會先了解你的狀況，再一起決定最適合的方式。</div>
+ <div class="facts"><div><b>1 對 1</b><span>全預約制</span></div><div><b>[ ]</b><span>年專業經驗</span></div><div><b>[ ]</b><span>位顧客信任</span></div></div>
+ <div class="sig">— Be gentle with yourself</div>
+
+ <div class="tp" id="therapist">
+  <div class="pic"><div class="ph">[ 美容師照片 ]<br>建議直式 4:5・自然光半身照</div></div>
+  <div class="bd">
+   <div class="role">BEAUTY THERAPIST</div>
+   <h3>[美容師名字]</h3>
+   <p class="q">[一句理念，例如：希望每位來到光美的人，都能帶著放鬆與光采離開。]</p>
+   <ul>
+    <li>[美容相關證照，例如：美容丙級技術士]</li>
+    <li>[經歷，例如：曾任 ○○ 美容中心美容師 ○ 年]</li>
+    <li>[進修／課程，例如：韓式肌膚管理、外泌體導入認證]</li>
+    <li>[其他，例如：服務超過 ○○○ 位顧客]</li>
+   </ul>
+   <div class="sk"><span>[擅長項目]</span><span>[擅長項目]</span><span>[擅長項目]</span></div>
+  </div>
+ </div>
+</section>
+
+<!-- 第一次來 -->
+<section class="howto">
+ <div class="eyebrow">First Visit</div>
+ <div class="h2">第一次來光美</div>
+ <div class="how">
+  <div><p><b>加官方 LINE 預約</b><span>告訴我們想做的課程和方便的時段，全預約制。</span></p></div>
+  <div><p><b>到店先聊聊</b><span>確認你的膚況和需求，再一起決定課程內容。</span></p></div>
+  <div><p><b>開始放鬆</b><span>好好躺下來，剩下的交給我們。</span></p></div>
+ </div>
+</section>
+
+<!-- 空間 -->
+<section id="space">
+ <div class="eyebrow">Our Space</div>
+ <div class="h2">光美的空間</div>
+ <div class="lead">慢下來，在這裡好好照顧自己。</div>
+ <div class="gal">
+  <img src="img/space1.jpg" alt="等候區"><img src="img/space2.jpg" alt="化妝台"><img src="img/space3.jpg" alt="燭光角落"><img src="img/space4.jpg" alt="招牌">
+ </div>
+</section>
+
+<!-- 空間出租 -->
+<section class="rent" id="rent">
+ <div class="eyebrow">Space for Rent</div>
+ <div class="h2">美業獨立工作空間</div>
+ <div class="lead">在台北東區，擁有一間屬於自己的工作室，專心服務、經營個人品牌。</div>
+ <div class="pic"><img src="img/rent.jpg" alt="空間佈置示意"><span>佈置示意圖</span></div>
+ <ul>
+  <li>東區核心地段・交通便利</li><li>獨立專屬空間・隱私佳</li><li>質感環境・專業形象加分</li><li>適合預約制・一對一精緻服務</li>
+ </ul>
+ <div class="rp"><span class="lead">月租</span><b>NT$12,000</b><span class="lead">/ 月</span><span class="nego">可議價</span></div>
+ <div class="lead" style="font-size:13px;margin-top:4px">租期與價格都可以聊，歡迎 LINE 洽詢</div>
+ <div class="small" style="color:var(--soft)">＊示意圖之家具與擺設以現場為準，歡迎預約參觀</div>
+ <div style="margin-top:18px"><a class="btn btn-dark" href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">LINE 洽詢・預約參觀</a></div>
+</section>
+
+<!-- 交通 -->
+<section class="visit" id="visit">
+ <div class="eyebrow">Visit Us</div>
+ <div class="h2">交通資訊</div>
+ <div class="card">
+  <dl>
+   <dt>地址</dt><dd>台北市大安區忠孝東路四段223巷40號</dd>
+   <dt>捷運</dt><dd>忠孝敦化站 2 號出口</dd>
+   <dt>時間</dt><dd>[營業時間]・全預約制</dd>
+  </dl>
+  <a class="btn btn-ghost map" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E5%BF%A0%E5%AD%9D%E6%9D%B1%E8%B7%AF%E5%9B%9B%E6%AE%B5223%E5%B7%B740%E8%99%9F" target="_blank" rel="noopener">開啟 Google 地圖</a>
+ </div>
+</section>
+
+<footer>
+ <div class="brand"><b>光美</b><span>GUĀNG MĚI</span></div>
+ <div class="it" style="font-size:18px;color:#D9C3A3;margin-top:8px">Be gentle with yourself</div>
+ <div class="ctas">
+  <a class="btn btn-line" href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">官方 LINE 預約・諮詢</a>
+  <a class="btn btn-ghost" href="https://www.instagram.com/guangmeitaiwan" target="_blank" rel="noopener">Instagram @guangmeitaiwan</a>
+ </div>
+ <div class="fine">本工作室提供一般美容保養服務，非醫療行為。<br>課程感受因人而異，實際內容以現場諮詢為準。<br>價格如有調整，以官方 LINE 公告為準。</div>
+</footer>
+
+<div class="float">
+ <a class="btn btn-line" href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">LINE 預約</a>
+ <a class="btn btn-dark" href="https://www.instagram.com/guangmeitaiwan" target="_blank" rel="noopener">Instagram</a>
+</div>
+</div>
+</body>
+</html>
