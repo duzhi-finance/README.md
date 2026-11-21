@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>光美手作教室</title>
+<link rel="icon" href="../icons/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="../icons/icon-180.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+TC:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F6F0E9;--paper2:#EFE5DA;--ink:#2B211C;--soft:#7A6658;--rose:#A97862;--champ:#C9AE8E;--line:#E2D4C5;--dark:#1E1A17}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#E9DFD4;font-family:'Noto Serif TC',serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.wrap{max-width:480px;margin:0 auto;background:var(--paper);min-height:100vh;box-shadow:0 0 60px rgba(60,40,30,.12);overflow:hidden}
+a{color:inherit;text-decoration:none}
+.draft{background:#A97862;color:#fff;text-align:center;font-size:12px;letter-spacing:1.5px;padding:7px}
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:rgba(246,240,233,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:baseline;gap:8px}.brand b{font-size:18px;letter-spacing:4px;font-weight:600}.brand span{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:40px;font-size:14px;letter-spacing:1.5px;padding:10px 20px;font-weight:600}
+.btn-line{background:#06C755;color:#fff}.btn-dark{background:var(--ink);color:var(--paper)}.btn-ghost{border:1px solid currentColor}
+.bar .btn{padding:7px 14px;font-size:12.5px}
+.hero{position:relative;height:520px;overflow:hidden;background:linear-gradient(160deg,#D9C2B0,#B9967F 55%,#A7836D)}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 18%,rgba(255,244,232,.55),transparent 40%),radial-gradient(circle at 15% 85%,rgba(90,60,45,.35),transparent 45%)}
+.hero .ring{position:absolute;border:1px solid rgba(255,248,240,.55);border-radius:50%}
+.hero .in{position:absolute;left:26px;right:26px;bottom:40px;color:#FBF4EC}
+.hero .k{font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:5px;opacity:.9}
+.hero h1{font-size:42px;font-weight:700;letter-spacing:8px;margin:8px 0 6px}
+.hero p{font-size:15px;letter-spacing:2px;line-height:1.9}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:16px 20px;scrollbar-width:none;border-bottom:1px solid var(--line)}
+.chips::-webkit-scrollbar{display:none}
+.chips a{flex:none;font-size:13px;letter-spacing:1.5px;padding:7px 14px;border:1px solid var(--line);border-radius:30px;background:#fff8}
+section{padding:52px 22px}
+.alt{background:var(--paper2)}
+.eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--rose)}
+.h2{font-size:27px;font-weight:700;letter-spacing:3px;margin:4px 0 10px}
+.lead{font-size:14px;line-height:1.95;color:var(--soft);letter-spacing:1px}
+.ph{background:linear-gradient(160deg,#EFE2D7,#E2CFC0);display:flex;align-items:center;justify-content:center;color:#A8968A;font-size:12px;letter-spacing:1.5px}
+.course{background:#fff;border-radius:20px;overflow:hidden;margin-top:18px;box-shadow:0 10px 26px rgba(120,90,70,.08)}
+.course .ph{aspect-ratio:16/10}
+.course .bd{padding:18px 20px 20px}
+.course .no{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--champ);font-size:15px;letter-spacing:2px}
+.course h3{font-size:19px;letter-spacing:2px;margin:3px 0 8px}
+.course .ds{font-size:13px;color:var(--soft);line-height:1.8;letter-spacing:.5px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 14px}
+.meta span{font-size:11.5px;letter-spacing:1px;color:var(--rose);background:#F6ECE5;padding:4px 10px;border-radius:20px}
+.course .ft{display:flex;align-items:baseline;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px}
+.course .pr{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--rose);font-weight:600}
+.course .pr small{font-family:'Noto Serif TC',serif;font-size:11.5px;color:var(--soft);font-weight:400;margin-left:4px}
+.course .ft a{font-size:12.5px;letter-spacing:1px;color:var(--rose)}
+.steps{counter-reset:s;margin-top:16px}
+.steps div{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.steps div:before{counter-increment:s;content:"0" counter(s);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--champ);width:30px;line-height:1.1;flex:none}
+.steps b{display:block;font-size:15px;letter-spacing:1.2px}.steps span{font-size:12.5px;color:var(--soft);line-height:1.7}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+.gal .ph{aspect-ratio:1/1;border-radius:14px}
+.gal .ph.big{grid-column:span 2;aspect-ratio:16/9}
+.info{background:#fff;border-radius:18px;padding:6px 20px;margin-top:18px}
+.info div{display:grid;grid-template-columns:76px 1fr;gap:10px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13.5px;line-height:1.7}
+.info div:last-child{border-bottom:none}.info dt{color:var(--rose);letter-spacing:1.5px;font-size:13px}
+.pv{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.pv div{background:#fffc;border-radius:16px;padding:16px 14px}
+.pv b{display:block;font-size:14.5px;letter-spacing:1px;margin-bottom:4px}.pv span{font-size:12px;color:var(--soft);line-height:1.7}
+footer{background:var(--dark);color:#F3EEE6;text-align:center;padding:48px 24px 96px}
+footer .brand{justify-content:center}
+footer .ctas{display:flex;flex-direction:column;gap:10px;margin:22px auto 0;max-width:300px}
+footer .btn-ghost{color:#F3EEE6}
+.float{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:30;width:min(440px,calc(100% - 32px));display:flex;gap:8px}
+.float a{flex:1;box-shadow:0 10px 26px rgba(0,0,0,.18)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="draft">排版預覽・內容為範例，待老闆確認</div>
+<header class="bar"><a class="brand" href="../"><b>光美</b><span>GUĀNG MĚI</span></a><a class="btn btn-line" href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">LINE 報名</a></header>
+
+<div class="hero">
+ <i class="ring" style="width:260px;height:260px;right:-60px;top:40px"></i>
+ <i class="ring" style="width:160px;height:160px;right:90px;top:150px"></i>
+ <div class="in"><div class="k">GUĀNG MĚI ATELIER</div><h1>光美手作教室</h1><p>用雙手，做一份屬於自己的療癒。<br>[一句教室介紹，待補]</p></div>
+</div>
+
+<nav class="chips"><a href="#courses">手作課程</a><a href="#flow">上課流程</a><a href="#gallery">作品欣賞</a><a href="#private">包班・企業</a><a href="#info">報名須知</a></nav>
+
+<section id="courses">
+ <div class="eyebrow">Workshops</div>
+ <div class="h2">手作課程</div>
+ <div class="lead">零基礎也能完成，帶著作品回家。</div>
+
+ <div class="course"><div class="ph">[ 課程照片 ]</div><div class="bd"><div class="no">COURSE 01</div><h3>[課程名稱，例如：香氛蠟燭]</h3>
+  <p class="ds">[課程介紹，例如：挑選喜歡的香味，調出專屬自己的香氛…]</p>
+  <div class="meta"><span>約 [ ] 小時</span><span>[ ] 人成班</span><span>含材料</span></div>
+  <div class="ft"><span class="pr">$[ ]<small>/ 人</small></span><a href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">LINE 報名 →</a></div></div></div>
+
+ <div class="course"><div class="ph">[ 課程照片 ]</div><div class="bd"><div class="no">COURSE 02</div><h3>[課程名稱，例如：擴香石]</h3>
+  <p class="ds">[課程介紹]</p>
+  <div class="meta"><span>約 [ ] 小時</span><span>[ ] 人成班</span><span>含材料</span></div>
+  <div class="ft"><span class="pr">$[ ]<small>/ 人</small></span><a href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">LINE 報名 →</a></div></div></div>
+
+ <div class="course"><div class="ph">[ 課程照片 ]</div><div class="bd"><div class="no">COURSE 03</div><h3>[課程名稱，例如：水晶手鍊]</h3>
+  <p class="ds">[課程介紹]</p>
+  <div class="meta"><span>約 [ ] 小時</span><span>[ ] 人成班</span><span>含材料</span></div>
+  <div class="ft"><span class="pr">$[ ]<small>/ 人</small></span><a href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">LINE 報名 →</a></div></div></div>
+</section>
+
+<section class="alt" id="flow">
+ <div class="eyebrow">How It Works</div>
+ <div class="h2">上課流程</div>
+ <div class="steps">
+  <div><p><b>LINE 預約報名</b><span>選好課程與日期，告訴我們人數。</span></p></div>
+  <div><p><b>到店準備</b><span>材料都已備齊，只要帶著好心情來。</span></p></div>
+  <div><p><b>老師帶著做</b><span>一步一步示範，零基礎也能完成。</span></p></div>
+  <div><p><b>帶作品回家</b><span>完成後包裝好，直接帶走。</span></p></div>
+ </div>
+</section>
+
+<section id="gallery">
+ <div class="eyebrow">Gallery</div>
+ <div class="h2">作品欣賞</div>
+ <div class="gal"><div class="ph big">[ 作品照 ]</div><div class="ph">[ 作品照 ]</div><div class="ph">[ 作品照 ]</div><div class="ph">[ 上課照 ]</div><div class="ph">[ 上課照 ]</div></div>
+</section>
+
+<section class="alt" id="private">
+ <div class="eyebrow">Private Class</div>
+ <div class="h2">包班・企業活動</div>
+ <div class="lead">朋友聚會、生日、閨蜜約會、公司團建，都可以包班。</div>
+ <div class="pv">
+  <div><b>朋友包班</b><span>[ ] 人以上即可包班，時間彈性。</span></div>
+  <div><b>企業團建</b><span>可到府或在店內上課，歡迎洽詢。</span></div>
+  <div><b>生日・慶祝</b><span>[可加購項目，待補]</span></div>
+  <div><b>客製課程</b><span>依需求調整作品與香味。</span></div>
+ </div>
+</section>
+
+<section id="info">
+ <div class="eyebrow">Notice</div>
+ <div class="h2">報名須知</div>
+ <dl class="info">
+  <div><dt>上課地點</dt><dd>台北市大安區忠孝東路四段223巷40號<br>捷運忠孝敦化站 2 號出口</dd></div>
+  <div><dt>上課時間</dt><dd>[固定場次／預約制，待補]</dd></div>
+  <div><dt>報名方式</dt><dd>官方 LINE 報名，[付款方式待補]</dd></div>
+  <div><dt>取消規則</dt><dd>[例如：上課前 3 天可改期，待補]</dd></div>
+  <div><dt>注意事項</dt><dd>[例如：建議穿著輕便、可能沾到材料的衣服]</dd></div>
+ </dl>
+</section>
+
+<footer>
+ <div class="brand"><b>光美</b><span>GUĀNG MĚI</span></div>
+ <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:#D9C3A3;margin-top:8px">Make something gentle</div>
+ <div class="ctas"><a class="btn btn-line" href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">官方 LINE 報名・諮詢</a><a class="btn btn-ghost" href="../">看光美美容課程 Menu</a></div>
+</footer>
+<div class="float"><a class="btn btn-line" href="https://lin.ee/JxoRihL" target="_blank" rel="noopener">LINE 報名</a><a class="btn btn-dark" href="#courses">看課程</a></div>
+</div>
+</body>
+</html>
