@@ -75,7 +75,7 @@ python $S/draft_plan.py work/transcript.json -o work/plan.json
 - 音效在 `sfx/`（`scripts/make_sfx.py` 合成，無版權）：pop、whoosh、swoosh_up、ding、boom、sparkle、tick、bubble。
 - `style.yaml` 的 `sfx.auto` 會自動配：開場 swoosh_up、重點大字 pop、內心 OS ding、疊字 sparkle、縮小黑底 boom、特寫切換 whoosh。
 - 想在特定時間點多加：`"sfx": [{"at": 原片秒數, "name": "bubble", "volume": 1}]`；整支不要音效：`"sfx": false`。
-- 畫面特效：重點大字出現時自動震一下、縮小黑底自動白光閃入；其他片段可手動加 `"fx": ["flash"]`。
+- 畫面特效：**不要用畫面震動**（使用者不喜歡）；縮小黑底自動白光閃入；其他片段可手動加 `"fx": ["flash"]`。
 - 搞笑 / 可愛的內容多用 bubble、pop；嚴肅轉折用 boom。不要每一刀都放音效，會很吵。
 
 ### 3-8 背景音樂

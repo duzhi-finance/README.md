@@ -105,5 +105,5 @@ sfx:
 
 # ── 畫面特效 ─────────────────────────────────────
 effects:
-  shake_on_emphasis: true   # 重點大字出現時畫面震一下
+  shake_on_emphasis: false  # 重點大字出現時畫面震一下（使用者不喜歡，關閉）
   flash_on_shrink: true     # 縮小黑底時白光閃入
