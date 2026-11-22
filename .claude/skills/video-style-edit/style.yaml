@@ -1,0 +1,90 @@
+# 影片剪輯風格設定 —— 「溫柔質感口播」風格
+# 參考：直式自拍口播、襯線明體字幕、粉色大字強調、括號內心 OS、暖色柔光。
+# 想調整風格，改這個檔案就好，不用動程式。
+
+output:
+  width: 1080
+  height: 1920
+  fps: 30
+
+# ── 節奏 ──────────────────────────────────────────
+pacing:
+  max_pause: 0.35        # 停頓超過這麼久(秒)就剪掉
+  pad: 0.08              # 每段話前後保留的緩衝(秒)，避免切到字
+  filler_words: ["嗯", "呃", "啊", "欸", "那個", "就是說"]   # 單獨出現時刪除
+
+# ── 鏡頭變化（模擬「拿著手機一下靠近一下拉遠」的感覺）────
+camera:
+  focus_y: 0.40          # 放大時的中心點高度（0=上 1=下），臉通常在 0.35~0.45
+  closeup_zoom: 1.45     # 特寫放大倍率（截圖 1、2、6 那種近臉）
+  medium_zoom: 1.15      # 中景
+  shrink_scale: 0.80     # 「縮小畫面 + 黑底」效果的縮放比例（截圖 5）
+  shrink_center_y: 0.47
+
+# ── 調色：暖、柔、微低對比 ───────────────────────────
+grade:
+  brightness: 0.02
+  contrast: 0.96
+  saturation: 0.95
+  warmth: 0.05           # 越大越暖（偏橘），0 = 不調
+  vignette: 0.45         # 暗角強度 0~1，0 = 關閉（截圖 6 的四周暗角）
+  soften: 0.6            # 柔膚 / 柔焦程度 0~1，0 = 關閉
+
+# ── 文字樣式 ─────────────────────────────────────
+# 字型：Linux 用 Noto Serif CJK TC；Mac 可改「Songti TC」；
+# 想更像參考影片，可以裝「源雲明體 GenWanMin TW」或「jf 金萱」後把名字填進來。
+fonts:
+  serif: "Noto Serif CJK TC"
+  emphasis: "Noto Serif CJK TC"
+
+subtitle:                # 一般字幕：白色襯線字、字距寬、柔和陰影
+  size: 64
+  bold: true
+  color: "#FFFFFF"
+  shadow_color: "#3A2E2A"
+  shadow_alpha: 0.45
+  blur: 4
+  letter_spacing: 14
+  y: 0.645               # 畫面高度比例（避開 IG/抖音下方的帳號與按鈕區）
+  max_chars: 10          # 每行最多幾個字
+  strip_punctuation: true
+
+emphasis:                # 重點大字：粉色、超大、跳出來（截圖 2「滑走」、截圖 6「復發過」）
+  size: 200
+  bold: true
+  color: "#F7D3CC"
+  shadow_color: "#4A3530"
+  shadow_alpha: 0.55
+  blur: 6
+  letter_spacing: 24
+  y: 0.66
+  pop: 1.25              # 出現時從多大縮回原尺寸
+  sub_size: 72           # 大字下方的小註解，例如「（抗戰成功）」
+  sub_color: "#FFFFFF"
+  sub_gap: 150
+
+aside:                   # 括號內心 OS：小字、粉紅字白邊，放在臉旁邊（截圖 3）
+  size: 50
+  bold: true
+  color: "#E57E78"
+  outline_color: "#FFFFFF"
+  outline: 4
+  x: 0.30
+  y: 0.475
+  tilt: 0                # 想要歪一點的俏皮感可以設 -4
+
+layered:                 # 疊字：大大的半透明金色字壓在字幕後面（截圖 4「可以根治」）
+  size: 190
+  bold: true
+  color: "#D9CB98"
+  alpha: 0.45            # 0 = 不透明, 1 = 全透明
+  blur: 3
+  letter_spacing: 30
+  y: 0.645
+
+# ── 聲音 ─────────────────────────────────────────
+audio:
+  loudness: -14          # 社群平台常見響度 (LUFS)
+  bgm: null              # 背景音樂路徑，例如 "music/soft-piano.mp3"
+  bgm_volume: 0.18
+  bgm_duck: true         # 說話時自動壓低音樂
