@@ -34,7 +34,7 @@ description: 把直式口播 / 自拍 / 療程 / 生活影片自動剪成使用�
 ```bash
 pip install -r .claude/skills/video-style-edit/requirements.txt
 # 另外需要 ffmpeg（含 libass）以及繁中襯線字型：
-#   Linux: apt-get install fonts-noto-cjk fonts-noto-cjk-extra fonts-noto-color-emoji（emoji 貼圖需要）
+#   Linux: apt-get install fonts-noto-cjk fonts-noto-cjk-extra
 #   Mac:   brew install ffmpeg ；字型可在 style.yaml 改成 "Songti TC"
 ```
 
