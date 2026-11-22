@@ -31,6 +31,16 @@ def probe_duration(path):
     return float(out.stdout.strip())
 
 
+def load_audio(path, sr=16000):
+    """用 ffmpeg 解出 16kHz 單聲道音訊（避開 PyAV 版本相容問題）。"""
+    import numpy as np
+    raw = subprocess.run(
+        ["ffmpeg", "-nostdin", "-v", "error", "-i", str(path), "-vn",
+         "-ac", "1", "-ar", str(sr), "-f", "f32le", "-"],
+        capture_output=True, check=True).stdout
+    return np.frombuffer(raw, dtype=np.float32)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("video")
@@ -44,7 +54,7 @@ def main():
 
     model = WhisperModel(args.model, device=args.device, compute_type="auto")
     segments, _info = model.transcribe(
-        args.video,
+        load_audio(args.video),
         language="zh",
         word_timestamps=True,
         vad_filter=True,
