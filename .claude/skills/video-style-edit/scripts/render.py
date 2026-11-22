@@ -17,7 +17,8 @@ plan.json 格式（時間全部用「原始影片」的秒數）：
   "emphasis": [{"start": 6.0, "end": 6.8, "text": "復發過", "sub": "（抗戰成功）"}],
   "asides":   [{"start": 2.0, "end": 3.2, "text": "（婦產科VIP本人）"}],
   "layered":  [{"start": 4.0, "end": 5.0, "text": "可以根治"}],
-  "bgm": null
+  "bgm": null,
+  "mute_source": false                         # true = 原音靜音（沒有講話、只想配音樂時）
 }
 """
 import argparse
@@ -217,7 +218,7 @@ def main():
     src = str(pathlib.Path(plan["source"]).resolve())
     fps = style["output"]["fps"]
     timeline, total = build_timeline(plan["clips"], fps)
-    audio_in = has_audio(src)
+    audio_in = has_audio(src) and not plan.get("mute_source")  # 沒講話的影片：靜音，避免把底噪放大
 
     tmp = pathlib.Path(tempfile.mkdtemp(prefix="vse_"))
     (tmp / "subs.ass").write_text(make_ass(plan, style, timeline), encoding="utf-8")

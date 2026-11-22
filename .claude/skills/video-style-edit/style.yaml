@@ -38,7 +38,7 @@ fonts:
   emphasis: "Noto Serif CJK TC"
 
 subtitle:                # 一般字幕：白色襯線字、字距寬、柔和陰影
-  size: 64
+  size: 72
   bold: true
   color: "#FFFFFF"
   shadow_color: "#3A2E2A"
@@ -64,7 +64,7 @@ emphasis:                # 重點大字：粉色、超大、跳出來（截圖 2
   sub_gap: 150
 
 aside:                   # 括號內心 OS：小字、粉紅字白邊，放在臉旁邊（截圖 3）
-  size: 50
+  size: 60
   bold: true
   color: "#E57E78"
   outline_color: "#FFFFFF"
@@ -77,7 +77,7 @@ layered:                 # 疊字：大大的半透明金色字壓在字幕後�
   size: 190
   bold: true
   color: "#D9CB98"
-  alpha: 0.45            # 0 = 不透明, 1 = 全透明
+  alpha: 0.30            # 0 = 不透明, 1 = 全透明
   blur: 3
   letter_spacing: 30
   y: 0.645
