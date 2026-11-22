@@ -18,10 +18,6 @@ plan.json 格式（時間全部用「原始影片」的秒數）：
   "emphasis": [{"start": 6.0, "end": 6.8, "text": "復發過", "sub": "（抗戰成功）"}],
   "asides":   [{"start": 2.0, "end": 3.2, "text": "（婦產科VIP本人）"}],
   "layered":  [{"start": 4.0, "end": 5.0, "text": "可以根治"}],
-  "title":    [{"start": 0, "end": 99, "text": "他是一個滿分男"}],      # 頂部固定標題
-  "doodles":  [{"start": 3, "end": 4, "type": "question", "x": 0.72, "y": 0.42}],  # question/exclaim/shock/squiggle/heart/sparkle
-  "emoji":    [{"start": 3, "end": 4, "emoji": "😍", "x": 0.7, "y": 0.4, "size": 120}],
-  "preset": "cute",                            # 風格預設：不填 = 質感明體；cute = 可愛綜藝圓體
   "bgm": null,
   "mute_source": false                         # true = 原音靜音（沒有講話、只想配音樂時）
 }
@@ -34,8 +30,6 @@ import subprocess
 import tempfile
 
 import yaml
-
-import elements as el
 
 HERE = pathlib.Path(__file__).resolve().parent
 
@@ -123,8 +117,8 @@ def make_ass(plan, style, timeline):
     f = style["fonts"]
     sub, emp, asd, lay = style["subtitle"], style["emphasis"], style["aside"], style["layered"]
 
-    def sty(name, font, size, bold, primary, outline_c, outline, spacing, back="#000000", shadow=0, back_alpha=0.6):
-        return (f"Style: {name},{font},{size},{primary},{primary},{outline_c},{ass_color(back, back_alpha)},"
+    def sty(name, font, size, bold, primary, outline_c, outline, spacing, back="#000000", shadow=0):
+        return (f"Style: {name},{font},{size},{primary},{primary},{outline_c},{ass_color(back, 0.6)},"
                 f"{-1 if bold else 0},0,0,0,100,100,{spacing},0,1,{outline},{shadow},5,0,0,0,1")
 
     styles = [
@@ -138,7 +132,7 @@ def make_ass(plan, style, timeline):
             ass_color(asd["outline_color"]), asd["outline"], 2),
         sty("Layer", f["emphasis"], lay["size"], lay["bold"], ass_color(lay["color"], lay["alpha"]),
             ass_color(lay["color"], 1.0), 0, lay["letter_spacing"]),
-    ] + el.extra_styles(style, sty, ass_color)
+    ]
 
     lines = []
 
@@ -151,23 +145,17 @@ def make_ass(plan, style, timeline):
     for e in map_events(plan.get("layered", []), timeline):
         ev(0, e, "Layer", rf"\an5\pos({cx},{int(lay['y'] * H)})\blur{lay['blur']}\fad(120,120)", e["text"])
     for e in map_events(captions, timeline):
-        ev(2, e, "Sub", rf"\an5\pos({int(e.get('x', 0.5) * W)},{int(e.get('y', sub['y']) * H)})"
-                        rf"\blur{sub['blur']}", e["text"])
+        ev(2, e, "Sub", rf"\an5\pos({cx},{int(sub['y'] * H)})\blur{sub['blur']}", e["text"])
     for e in map_events(plan.get("emphasis", []), timeline):
         p = int(emp["pop"] * 100)
-        x, y = int(e.get("x", 0.5) * W), int(e.get("y", emp["y"]) * H)
-        ev(3, e, "Emph", rf"\an5\pos({x},{y})\blur{emp['blur']}\fad(60,150)"
+        y = int(emp["y"] * H)
+        ev(3, e, "Emph", rf"\an5\pos({cx},{y})\blur{emp['blur']}\fad(60,150)"
                          rf"\fscx{p}\fscy{p}\t(0,180,\fscx100\fscy100)", e["text"])
         if e.get("sub"):
-            ev(3, e, "EmphSub", rf"\an5\pos({x},{y + emp['sub_gap']})\blur{sub['blur']}\fad(150,150)", e["sub"])
+            ev(3, e, "EmphSub", rf"\an5\pos({cx},{y + emp['sub_gap']})\blur{sub['blur']}\fad(150,150)", e["sub"])
     for e in map_events(plan.get("asides", []), timeline):
-        lk = el.aside_look(style, e)
-        name = e.get("look") or asd.get("default_look")
-        sname = f"Aside_{name}" if name in style.get("aside_looks", {}) else "Aside"
-        ev(4, e, sname, rf"\an5\pos({int(e.get('x', lk['x']) * W)},{int(e.get('y', lk['y']) * H)})"
-                        rf"\frz{e.get('tilt', lk.get('tilt', 0))}\blur{lk.get('blur', 0)}\fad(80,80)", e["text"])
-    el.title_events(plan, style, timeline, map_events, ev)
-    el.doodle_events(plan, style, timeline, map_events, ev)
+        ev(4, e, "Aside", rf"\an5\pos({int(asd['x'] * W)},{int(asd['y'] * H)})\frz{asd['tilt']}"
+                          rf"\fad(80,80)", e["text"])
 
     return "\n".join([
         "[Script Info]", "ScriptType: v4.00+", f"PlayResX: {W}", f"PlayResY: {H}",
@@ -286,12 +274,10 @@ def main():
     ap.add_argument("--style", default=str(HERE.parent / "style.yaml"))
     ap.add_argument("--preview", action="store_true", help="快速低畫質預覽")
     ap.add_argument("--keep-ass", action="store_true", help="另存字幕檔 .ass 方便進剪輯軟體微調")
-    ap.add_argument("--preset", help="風格預設（presets/ 底下的檔名），會覆蓋 plan 的 preset")
     args = ap.parse_args()
 
     style = yaml.safe_load(open(args.style, encoding="utf-8"))
     plan = json.load(open(args.plan, encoding="utf-8"))
-    style = el.apply_preset(style, args.preset or plan.get("preset"))
     src = str(pathlib.Path(plan["source"]).resolve())
     fps = style["output"]["fps"]
     timeline, total = build_timeline(plan["clips"], fps)
@@ -301,7 +287,6 @@ def main():
     sfx_events = collect_sfx(plan, style, timeline)
 
     tmp = pathlib.Path(tempfile.mkdtemp(prefix="vse_"))
-    overlays = el.extract_emoji_overlays(plan, style, tmp)  # 含 emoji 的字卡改用圖片
     (tmp / "subs.ass").write_text(make_ass(plan, style, timeline), encoding="utf-8")
 
     cmd, fg = ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-stats"], []
@@ -335,14 +320,11 @@ def main():
             fg.append(f"anullsrc=r=48000:cl=stereo,atrim=duration={c['dur']:.3f}[a{i}]")
         concat_in += f"[v{i}][a{i}]"
     fg.append(f"{concat_in}concat=n={n}:v=1:a=1[cv][ca]")
-    fg.append(f"[cv]ass=subs.ass:fontsdir='{el.FONT_DIR}'[subv]")
-    ov_args, ov_fg, ov_label, next_in = el.overlay_filters(overlays, timeline, map_events, n_inputs, fps, total, "subv")
-    cmd += ov_args
-    fg += ov_fg
-    fg.append(f"[{ov_label}]null[outv]")
+    fg.append("[cv]ass=subs.ass[outv]")
 
     au = style["audio"]
     fg.append(f"[ca]highpass=f=70,loudnorm=I={au['loudness']}:TP=-1.5:LRA=11[vraw]")
+    next_in = n_inputs
     if sfx_events:
         files = sorted({e["file"] for e in sfx_events})
         labels = []
