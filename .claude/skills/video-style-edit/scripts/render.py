@@ -170,6 +170,61 @@ def make_ass(plan, style, timeline):
     ])
 
 
+# ── 自動特效與音效 ───────────────────────────────────
+def clip_at(timeline, t):
+    """回傳原片時間 t 第一次出現在成品中的 (clip, 成品時間)。"""
+    for c in timeline:
+        if c["start"] <= t < c["start"] + c["dur"]:
+            return c, c["out"] + t - c["start"]
+    return None, None
+
+
+def apply_auto_fx(plan, style, timeline):
+    auto = style.get("effects", {})
+    for c in timeline:
+        c.setdefault("fx", list(c.get("fx", [])))
+        if c.get("effect") == "shrink" and auto.get("flash_on_shrink") and "flash" not in c["fx"]:
+            c["fx"].append("flash")
+    if auto.get("shake_on_emphasis"):
+        for e in plan.get("emphasis", []):
+            for c in timeline:
+                if c["start"] <= e["start"] < c["start"] + c["dur"]:
+                    c.setdefault("_shake_at", []).append(e["start"] - c["start"])
+
+
+def collect_sfx(plan, style, timeline):
+    cfg = style.get("sfx", {})
+    if not cfg.get("enabled") or plan.get("sfx") is False:
+        return []
+    folder = (HERE.parent / cfg.get("folder", "sfx")).resolve()
+    base = cfg.get("volume", 0.5)
+    auto = cfg.get("auto", {}) if plan.get("auto_sfx", True) else {}
+    ev = []
+
+    def add(at, name, vol=1.0):
+        f = folder / f"{name}.wav"
+        if name and f.exists() and at is not None:
+            ev.append({"at": max(0.0, at), "file": str(f), "volume": base * vol})
+
+    if auto.get("intro"):
+        add(0.0, auto["intro"], 0.7)
+    for key in ("emphasis", "asides", "layered"):
+        name = auto.get(key)
+        for e in plan.get(key, []) if name else []:
+            for c in timeline:
+                if c["start"] <= e["start"] < c["start"] + c["dur"]:
+                    add(c["out"] + e["start"] - c["start"], name)
+    for prev, c in zip(timeline, timeline[1:]):
+        if c.get("effect") == "shrink" and auto.get("shrink"):
+            add(c["out"], auto["shrink"])
+        elif auto.get("zoom_cut") and abs(float(c.get("zoom", 1)) - float(prev.get("zoom", 1))) >= 0.25:
+            add(c["out"] - 0.12, auto["zoom_cut"], cfg.get("zoom_cut_volume", 0.4))
+    for e in plan.get("sfx") or []:  # 手動指定：{"at": 原片秒數, "name": "pop", "volume": 1}
+        _, at = clip_at(timeline, e["at"])
+        add(at, e["name"], e.get("volume", 1.0))
+    return ev
+
+
 # ── 畫面濾鏡 ─────────────────────────────────────────
 def video_chain(c, style):
     W, H = style["output"]["width"], style["output"]["height"]
@@ -187,6 +242,11 @@ def video_chain(c, style):
         chain += [f"scale={int(W * z0) // 2 * 2}:{int(H * z0) // 2 * 2}",
                   f"crop={W}:{H}:x=(iw-{W})/2:y=(ih-{H})*{fy}"]
 
+    fx = c.get("fx", [])
+    for st in c.get("_shake_at", []):  # 震一下：重點大字出現的瞬間
+        k = f"if(gte(t,{st:.3f}),max(0,1-(t-{st:.3f})/0.35),0)"
+        chain += [f"scale={W + 60}:{H + 104}",
+                  f"crop={W}:{H}:x='30+26*sin((t-{st:.3f})*70)*{k}':y='52+22*cos((t-{st:.3f})*55)*{k}'"]
     if g.get("soften", 0) > 0:
         chain.append(f"smartblur=lr=2.0:ls={0.6 * g['soften']:.2f}:lt=6")
     w = g.get("warmth", 0)
@@ -200,7 +260,9 @@ def video_chain(c, style):
         s = cam["shrink_scale"]
         chain += [f"scale={int(W * s) // 2 * 2}:-2",
                   f"pad={W}:{H}:(ow-iw)/2:{int(H * cam['shrink_center_y'])}-ih/2:black"]
-    chain += [f"fps={style['output']['fps']}", "format=yuv420p", "setpts=PTS-STARTPTS"]
+    if "flash" in fx:  # 白光閃入
+        chain.append("fade=t=in:st=0:d=0.18:color=white")
+    chain += [f"fps={style['output']['fps']}", "format=yuv420p", "setsar=1", "setpts=PTS-STARTPTS"]
     return ",".join(chain)
 
 
@@ -219,6 +281,9 @@ def main():
     fps = style["output"]["fps"]
     timeline, total = build_timeline(plan["clips"], fps)
     audio_in = has_audio(src) and not plan.get("mute_source")  # 沒講話的影片：靜音，避免把底噪放大
+
+    apply_auto_fx(plan, style, timeline)
+    sfx_events = collect_sfx(plan, style, timeline)
 
     tmp = pathlib.Path(tempfile.mkdtemp(prefix="vse_"))
     (tmp / "subs.ass").write_text(make_ass(plan, style, timeline), encoding="utf-8")
@@ -241,10 +306,27 @@ def main():
     fg.append("[cv]ass=subs.ass[outv]")
 
     au = style["audio"]
-    fg.append(f"[ca]highpass=f=70,loudnorm=I={au['loudness']}:TP=-1.5:LRA=11[voice]")
+    fg.append(f"[ca]highpass=f=70,loudnorm=I={au['loudness']}:TP=-1.5:LRA=11[vraw]")
+    next_in = n
+    if sfx_events:
+        files = sorted({e["file"] for e in sfx_events})
+        labels = []
+        for f in files:
+            evs = [e for e in sfx_events if e["file"] == f]
+            cmd += ["-i", f]
+            outs = "".join(f"[s{next_in}_{j}]" for j in range(len(evs)))
+            fg.append(f"[{next_in}:a]aresample=48000,aformat=channel_layouts=stereo,asplit={len(evs)}{outs}")
+            for j, e in enumerate(evs):
+                ms = int(e["at"] * 1000)
+                fg.append(f"[s{next_in}_{j}]volume={e['volume']:.2f},adelay={ms}|{ms}[x{next_in}_{j}]")
+                labels.append(f"[x{next_in}_{j}]")
+            next_in += 1
+        fg.append(f"[vraw]{''.join(labels)}amix=inputs={len(labels) + 1}:duration=first:normalize=0[voice]")
+    else:
+        fg.append("[vraw]anull[voice]")
     bgm = plan.get("bgm") or au.get("bgm")
     if bgm:
-        bi = n
+        bi = next_in
         cmd += ["-stream_loop", "-1", "-i", str(pathlib.Path(bgm).resolve())]
         fg.append(f"[{bi}:a]aresample=48000,aformat=channel_layouts=stereo,volume={au['bgm_volume']},"
                   f"atrim=duration={total:.3f},afade=t=out:st={max(0, total - 1.5):.3f}:d=1.5[bg]")

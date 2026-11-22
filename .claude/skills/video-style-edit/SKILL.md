@@ -71,8 +71,17 @@ python $S/draft_plan.py work/transcript.json -o work/plan.json
 - 臉的位置偏高或偏低時，可加 `"focus_y": 0.35` 調整放大的中心。
 - 片段可以切細：一個長 clip 可以拆成兩個（時間接續），各自給不同 zoom。
 
-### 3-7 背景音樂
-使用者有提供音樂才加：`"bgm": "music/xxx.mp3"`（說話時會自動壓低）。
+### 3-7 音效與畫面特效
+- 音效在 `sfx/`（`scripts/make_sfx.py` 合成，無版權）：pop、whoosh、swoosh_up、ding、boom、sparkle、tick、bubble。
+- `style.yaml` 的 `sfx.auto` 會自動配：開場 swoosh_up、重點大字 pop、內心 OS ding、疊字 sparkle、縮小黑底 boom、特寫切換 whoosh。
+- 想在特定時間點多加：`"sfx": [{"at": 原片秒數, "name": "bubble", "volume": 1}]`；整支不要音效：`"sfx": false`。
+- 畫面特效：重點大字出現時自動震一下、縮小黑底自動白光閃入；其他片段可手動加 `"fx": ["flash"]`。
+- 搞笑 / 可愛的內容多用 bubble、pop；嚴肅轉折用 boom。不要每一刀都放音效，會很吵。
+
+### 3-8 背景音樂
+- **熱門歌曲有版權，不要自己抓。** 建議使用者上傳 IG / 抖音時用平台內建音樂庫（有授權，也能吃到熱門音樂的流量）。
+- 使用者有提供免版權音樂才加：`"bgm": "music/xxx.mp3"`（說話時會自動壓低）。
+- 沒有講話的影片：設 `"mute_source": true`，避免把底噪放大。
 
 ## 4. 輸出
 

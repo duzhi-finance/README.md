@@ -88,3 +88,22 @@ audio:
   bgm: null              # 背景音樂路徑，例如 "music/soft-piano.mp3"
   bgm_volume: 0.18
   bgm_duck: true         # 說話時自動壓低音樂
+
+# ── 音效（scripts/make_sfx.py 合成，無版權問題）────────
+sfx:
+  enabled: true
+  folder: sfx
+  volume: 0.45           # 音效整體音量
+  zoom_cut_volume: 0.35  # 鏡頭切換「咻」聲的相對音量
+  auto:                  # 自動配音效；不要的項目留空
+    intro: swoosh_up     # 開場
+    emphasis: pop        # 粉色大字跳出
+    asides: ding         # 內心 OS
+    layered: sparkle     # 金色疊字
+    shrink: boom         # 縮小黑底
+    zoom_cut: whoosh     # 特寫 ↔ 拉遠 切換
+
+# ── 畫面特效 ─────────────────────────────────────
+effects:
+  shake_on_emphasis: true   # 重點大字出現時畫面震一下
+  flash_on_shrink: true     # 縮小黑底時白光閃入
