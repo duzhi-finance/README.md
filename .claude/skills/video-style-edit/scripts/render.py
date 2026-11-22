@@ -11,7 +11,8 @@ plan.json 格式（時間全部用「原始影片」的秒數）：
     {"start": 1.2, "end": 3.4, "zoom": 1.0},
     {"start": 3.6, "end": 5.0, "zoom": 1.45},              # 特寫
     {"start": 5.2, "end": 7.0, "zoom": 1.0, "zoom_to": 1.2},  # 慢慢推近
-    {"start": 7.1, "end": 9.0, "effect": "shrink"}         # 縮小畫面 + 黑底
+    {"start": 7.1, "end": 9.0, "effect": "shrink"},        # 縮小畫面 + 黑底
+    {"start": 9.0, "end": 11.0, "video_from": 30.0}        # 聲音照常，畫面改用 30 秒處（蓋掉原片的字）
   ],
   "captions": [{"start": 1.3, "end": 2.2, "text": "這篇請你"}],
   "emphasis": [{"start": 6.0, "end": 6.8, "text": "復發過", "sub": "（抗戰成功）"}],
@@ -289,16 +290,32 @@ def main():
     (tmp / "subs.ass").write_text(make_ass(plan, style, timeline), encoding="utf-8")
 
     cmd, fg = ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-stats"], []
+    vin = []
     for c in timeline:
         cmd += ["-ss", f"{c['start']:.3f}", "-t", f"{c['dur']:.3f}", "-i", src]
+    for i, c in enumerate(timeline):
+        # video_from：聲音照原時間，畫面改用別段（蓋掉原片燒進去的字 / 換 B-roll）
+        if c.get("video_from") is not None:
+            vin.append(len(timeline) + sum(1 for x in timeline[:i] if x.get("video_from") is not None))
+        else:
+            vin.append(i)
+    for c in timeline:
+        if c.get("video_from") is not None:
+            cmd += ["-ss", f"{c['video_from']:.3f}", "-t", f"{c['dur']:.3f}", "-i", src]
     n = len(timeline)
+    n_inputs = n + sum(1 for c in timeline if c.get("video_from") is not None)
     concat_in = ""
     for i, c in enumerate(timeline):
-        fg.append(f"[{i}:v]{video_chain(c, style)}[v{i}]")
+        fg.append(f"[{vin[i]}:v]{video_chain(c, style)}[v{i}]")
         if audio_in:
-            fo = max(0.0, c["dur"] - 0.03)
+            # 和前後片段聲音相連（連續旁白）時只做極短淡入淡出，避免吃字
+            prev_c = timeline[i - 1] if i else None
+            next_c = timeline[i + 1] if i + 1 < n else None
+            fi = 0.005 if prev_c and abs(prev_c["start"] + prev_c["dur"] - c["start"]) < 0.04 else 0.02
+            fo_d = 0.005 if next_c and abs(c["start"] + c["dur"] - next_c["start"]) < 0.04 else 0.03
+            fo = max(0.0, c["dur"] - fo_d)
             fg.append(f"[{i}:a]aresample=48000,aformat=channel_layouts=stereo,"
-                      f"afade=t=in:d=0.02,afade=t=out:st={fo:.3f}:d=0.03,asetpts=PTS-STARTPTS[a{i}]")
+                      f"afade=t=in:d={fi},afade=t=out:st={fo:.3f}:d={fo_d},asetpts=PTS-STARTPTS[a{i}]")
         else:
             fg.append(f"anullsrc=r=48000:cl=stereo,atrim=duration={c['dur']:.3f}[a{i}]")
         concat_in += f"[v{i}][a{i}]"
@@ -307,7 +324,7 @@ def main():
 
     au = style["audio"]
     fg.append(f"[ca]highpass=f=70,loudnorm=I={au['loudness']}:TP=-1.5:LRA=11[vraw]")
-    next_in = n
+    next_in = n_inputs
     if sfx_events:
         files = sorted({e["file"] for e in sfx_events})
         labels = []
