@@ -91,7 +91,7 @@ audio:
 
 # ── 音效（scripts/make_sfx.py 合成，無版權問題）────────
 sfx:
-  enabled: true
+  enabled: false        # 合成音效聽起來不夠自然，先關閉；換成真實音效後再打開
   folder: sfx
   volume: 0.45           # 音效整體音量
   zoom_cut_volume: 0.35  # 鏡頭切換「咻」聲的相對音量
