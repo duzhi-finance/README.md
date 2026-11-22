@@ -36,6 +36,7 @@ grade:
 fonts:
   serif: "Noto Serif CJK TC"
   emphasis: "Noto Serif CJK TC"
+  emphasis_sub: "Noto Serif CJK TC"
 
 subtitle:                # 一般字幕：白色襯線字、字距寬、柔和陰影
   size: 72
@@ -72,6 +73,37 @@ aside:                   # 括號內心 OS：小字、粉紅字白邊，放在�
   x: 0.30
   y: 0.475
   tilt: 0                # 想要歪一點的俏皮感可以設 -4
+  default_look: pink
+
+# 旁白的不同樣式：asides 裡寫 "look": "cream" 就能切換
+aside_looks:
+  pink:  {color: "#E57E78", outline_color: "#FFFFFF", outline_alpha: 1, outline: 4}               # 粉紅字白邊
+  cream: {color: "#F4E4B6", outline_color: "#4A3A2E", outline_alpha: 0.35, outline: 3, blur: 3,
+          size: 62, x: 0.33, y: 0.40}                                                             # 淡黃（笑容逐漸消失）
+  gray:  {color: "#8E8984", outline_color: "#FFFFFF", outline_alpha: 0.5, outline: 2, blur: 2,
+          size: 64, x: 0.5, y: 0.36}                                                              # 灰色（非靜止畫面）
+  star:  {color: "#FFFFFF", outline_color: "#222222", outline_alpha: 0.4, outline: 3, blur: 3,
+          size: 56, x: 0.40, y: 0.40}                                                             # 白字（*眼睛開始發亮）
+
+title:                   # 頂部固定標題（整支片或一段時間都在，例如「他是一個滿分男」）
+  font: "Noto Serif CJK TC"
+  size: 96
+  color: "#F7E6DF"
+  outline_color: "#3A2E2A"
+  outline_alpha: 0.35
+  outline: 3
+  shadow: 4
+  shadow_color: "#3A2E2A"
+  shadow_alpha: 0.45
+  blur: 3
+  letter_spacing: 10
+  y: 0.17
+
+doodle:                  # 手繪塗鴉（問號、驚嘆號、震驚線、扭扭線、愛心、星光）
+  font: "GenSenRounded2 TW H"
+  color: "#FFFFFF"
+  shadow_color: "#3A3A3A"
+  shadow_alpha: 0.35
 
 layered:                 # 疊字：大大的半透明金色字壓在字幕後面（截圖 4「可以根治」）
   size: 190

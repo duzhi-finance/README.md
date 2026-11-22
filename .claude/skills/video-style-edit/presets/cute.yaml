@@ -1,0 +1,60 @@
+# 可愛綜藝風：圓體粗字、粉色大數字、頂部米粉色標題、淡黃 / 灰色括號 OS、塗鴉與 emoji
+# 適合：聊天、挑戰、遊戲、生活搞笑、閨蜜對話、開箱。
+# 只需寫和 style.yaml 不同的地方。
+
+fonts:
+  serif: "GenSenRounded2 TW B"        # 源泉圓體 粗（skill 內附，SIL OFL 授權）
+  emphasis: "GenSenRounded2 TW H"     # 源泉圓體 特粗
+  emphasis_sub: "GenSenRounded2 TW H"
+
+grade:
+  brightness: 0.03
+  contrast: 1.0
+  saturation: 1.0
+  warmth: 0.02
+  vignette: 0
+  soften: 0.3
+
+subtitle:
+  size: 76
+  color: "#FFFFFF"
+  shadow_color: "#000000"
+  shadow_alpha: 0.45
+  blur: 5
+  letter_spacing: 2
+  y: 0.70
+  max_chars: 12
+
+emphasis:
+  size: 170
+  color: "#F5C3C9"
+  shadow_color: "#3A2A2A"
+  shadow_alpha: 0.35
+  blur: 8
+  letter_spacing: 4
+  y: 0.60
+  pop: 1.25
+  sub_size: 84
+  sub_color: "#FFFFFF"
+  sub_gap: 140
+
+aside:
+  default_look: cream
+
+layered:
+  color: "#F5C3C9"
+  alpha: 0.35
+
+title:
+  font: "GenSenRounded2 TW H"
+  size: 108
+  color: "#F3D7CA"
+  outline_color: "#5A3A32"
+  outline_alpha: 0.45
+  outline: 3
+  shadow: 6
+  shadow_color: "#5A3A32"
+  shadow_alpha: 0.45
+  blur: 2
+  letter_spacing: 4
+  y: 0.175
