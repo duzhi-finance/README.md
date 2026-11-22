@@ -8,6 +8,18 @@ description: 把直式口播 / 自拍分享影片，自動剪成「溫柔質感�
 流程：**轉逐字稿 → 自動粗剪 → 你（Claude）做風格判斷 → 輸出影片**。
 腳本都在 `scripts/`，風格參數在 `style.yaml`（顏色、字型、字幕位置、節奏都在那裡改）。
 
+## 使用者已確認的偏好
+- 只用這一套「溫柔質感」風格（襯線明體字幕、粉色大字、括號內心 OS、金色疊字）。
+- **不要畫面震動特效。**
+- 合成音效聽起來太假，先不用（`sfx.enabled: false`）；要音效請使用者提供真實音效檔。
+- 熱門音樂交給 IG / 抖音內建音樂庫。
+- 原片已經燒進去的字幕：用放大裁切（zoom ≥ 1.25、focus_y 0）裁掉底部字幕，畫面中間有字的段落用 `video_from` 換成乾淨畫面。
+
+## 取得影片
+- 使用者會給 **Google 雲端硬碟分享連結**（手機 / 平板傳不了大檔）。下載：
+  `curl -L -o work/src/video.mov "https://drive.usercontent.google.com/download?id=<檔案ID>&export=download&confirm=t"`
+- 先抽格看畫面（`ffmpeg -vf "fps=1,scale=192:-2,tile=10x2"`），確認是不是原始素材、有沒有燒進去的字。
+
 ## 0. 環境準備（第一次）
 
 ```bash
