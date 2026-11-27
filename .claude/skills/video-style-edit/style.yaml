@@ -28,7 +28,7 @@ grade:
   saturation: 0.95
   warmth: 0.05           # 越大越暖（偏橘），0 = 不調
   vignette: 0.45         # 暗角強度 0~1，0 = 關閉（截圖 6 的四周暗角）
-  soften: 0.6            # 柔膚 / 柔焦程度 0~1，0 = 關閉
+  soften: 0.3            # 柔膚 / 柔焦程度 0~1，0 = 關閉（太高畫面會糊）
 
 # ── 文字樣式 ─────────────────────────────────────
 # 字型：Linux 用 Noto Serif CJK TC；Mac 可改「Songti TC」；
@@ -45,19 +45,19 @@ subtitle:                # 一般字幕：白色襯線字、字距寬、柔和�
   shadow_alpha: 0.45
   blur: 4
   letter_spacing: 14
-  y: 0.645               # 畫面高度比例（避開 IG/抖音下方的帳號與按鈕區）
+  y: 0.68                # 畫面高度比例（使用者希望再低一些；仍避開 IG 下方帳號區）
   max_chars: 10          # 每行最多幾個字
   strip_punctuation: true
 
 emphasis:                # 重點大字：粉色、超大、跳出來（截圖 2「滑走」、截圖 6「復發過」）
-  size: 200
+  size: 225
   bold: true
-  color: "#F7D3CC"
+  color: "#F4C3C3"
   shadow_color: "#4A3530"
   shadow_alpha: 0.55
   blur: 6
-  letter_spacing: 24
-  y: 0.66
+  letter_spacing: 16
+  y: 0.69
   pop: 1.25              # 出現時從多大縮回原尺寸
   sub_size: 72           # 大字下方的小註解，例如「（抗戰成功）」
   sub_color: "#FFFFFF"
@@ -80,7 +80,7 @@ layered:                 # 疊字：大大的半透明金色字壓在字幕後�
   alpha: 0.30            # 0 = 不透明, 1 = 全透明
   blur: 3
   letter_spacing: 30
-  y: 0.645
+  y: 0.68
 
 # ── 聲音 ─────────────────────────────────────────
 audio:

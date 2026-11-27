@@ -231,17 +231,19 @@ def video_chain(c, style):
     W, H = style["output"]["width"], style["output"]["height"]
     cam, g = style["camera"], style["grade"]
     fy = c.get("focus_y", cam["focus_y"])
-    chain = [f"scale={W}:{H}:force_original_aspect_ratio=increase", f"crop={W}:{H}", "setsar=1"]
+    chain = [f"scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos", f"crop={W}:{H}", "setsar=1"]
 
     z0 = float(c.get("zoom", 1.0))
     z1 = float(c.get("zoom_to", z0))
     if z1 != z0:  # 慢慢推近 / 拉遠
         z = f"({z0}+({z1 - z0})*min(t/{c['dur']:.3f},1))"
-        chain += [f"scale=w='trunc({W}*{z}/2)*2':h='trunc({H}*{z}/2)*2':eval=frame",
+        chain += [f"scale=w='trunc({W}*{z}/2)*2':h='trunc({H}*{z}/2)*2':eval=frame:flags=lanczos",
                   f"crop={W}:{H}:x='(iw-{W})/2':y='(ih-{H})*{fy}'"]
     elif z0 > 1.0:
-        chain += [f"scale={int(W * z0) // 2 * 2}:{int(H * z0) // 2 * 2}",
+        chain += [f"scale={int(W * z0) // 2 * 2}:{int(H * z0) // 2 * 2}:flags=lanczos",
                   f"crop={W}:{H}:x=(iw-{W})/2:y=(ih-{H})*{fy}"]
+    if max(z0, z1) >= 1.2:  # 放大後補一點銳利度，避免畫面變糊
+        chain.append("unsharp=5:5:0.5:5:5:0.0")
 
     fx = c.get("fx", [])
     for st in c.get("_shake_at", []):  # 震一下：重點大字出現的瞬間
@@ -359,9 +361,10 @@ def main():
     out = pathlib.Path(args.out).resolve()
     out.parent.mkdir(parents=True, exist_ok=True)
     (tmp / "graph.txt").write_text(";\n".join(fg), encoding="utf-8")
-    enc = (["-preset", "veryfast", "-crf", "28"] if args.preview else ["-preset", "medium", "-crf", "19"])
+    enc = (["-preset", "veryfast", "-crf", "28"] if args.preview else
+           ["-preset", "slow", "-crf", "16", "-profile:v", "high", "-level", "4.2", "-pix_fmt", "yuv420p"])
     cmd += ["-filter_complex_script", "graph.txt", "-map", "[outv]", "-map", "[outa]",
-            "-c:v", "libx264", *enc, "-c:a", "aac", "-b:a", "192k",
+            "-c:v", "libx264", *enc, "-c:a", "aac", "-b:a", "256k",
             "-movflags", "+faststart", str(out)]
     try:
         subprocess.run(cmd, cwd=tmp, check=True)
