@@ -196,6 +196,13 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter
 .baf figure img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
 .baf figure em{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);font-style:normal;font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:2.5px;color:#fff;background:rgba(70,48,38,.45);padding:2px 10px;border-radius:20px}
 .rv1{margin-top:4px;text-align:center}.rv1 .baf{width:100%}.rv1 b{display:block;margin-top:14px;font-size:15px;letter-spacing:2px}
+.rvs{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -22px;padding:4px 22px 10px;scrollbar-width:none}
+.rvs::-webkit-scrollbar{display:none}
+.rvs .rv1{flex:none;width:88%;scroll-snap-align:center}
+.st3{display:flex;flex-direction:column;gap:4px;border-radius:14px;overflow:hidden;box-shadow:0 8px 20px rgba(120,90,70,.1)}
+.st3 figure{position:relative;margin:0;aspect-ratio:2.6/1;overflow:hidden}
+.st3 img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block}
+.st3 em{position:absolute;left:10px;top:8px;font-style:normal;font-family:'Cormorant Garamond',serif;font-size:11.5px;letter-spacing:2px;color:#fff;background:rgba(70,48,38,.45);padding:2px 10px;border-radius:20px}
 </style>
 </head>
 <body>
@@ -331,10 +338,17 @@ footer .fine{font-size:11px;color:#9b938a;line-height:1.8;margin-top:24px;letter
  <div class="eyebrow">Real Results</div>
  <div class="h2">顧客見證</div>
  <div class="lead">光美顧客的真實護理紀錄。</div>
- <div class="rv1">
-  <div class="baf"><figure><img src="../img/exo/face-before.jpg" alt="護理前" loading="lazy"><em>BEFORE</em></figure><figure><img src="../img/exo/face-after.jpg" alt="護理後" loading="lazy"><em>AFTER</em></figure></div>
-  <b>靈芝外泌體養膚</b>
+ <div class="rvs">
+  <div class="rv1">
+   <div class="baf"><figure><img src="../img/exo/face-before.jpg" alt="護理前" loading="lazy"><em>BEFORE</em></figure><figure><img src="../img/exo/face-after.jpg" alt="護理後" loading="lazy"><em>AFTER</em></figure></div>
+   <b>靈芝外泌體養膚</b>
+  </div>
+  <div class="rv1">
+   <div class="st3"><figure><img src="../img/exo/scalp-s0.jpg" alt="護理前" loading="lazy"><em>BEFORE</em></figure><figure><img src="../img/exo/scalp-s1.jpg" alt="療程中" loading="lazy"><em>療程中</em></figure><figure><img src="../img/exo/scalp-s2.jpg" alt="護理後" loading="lazy"><em>AFTER</em></figure></div>
+   <b>外泌體養髮</b>
+  </div>
  </div>
+ <p class="tm-hint">← 左右滑動看更多 →</p>
   <p class="duo-note">＊實際顧客紀錄，經本人同意使用；效果因人而異</p>
 </section>
 
